@@ -1,0 +1,10 @@
+#pragma once
+#define CAN_INTERRUPT 19//2
+#define CAN_SPI_CS 18//4
+#define RSIG_OUTPUT 23
+#define LSIG_OUTPUT 25
+#define HORN_OUTPUT 27
+#define HEADLIGHTS_OUTPUT 29
+#define WIPER_PWM_SERVO 45 
+#define PEDALBRAKE_INTERRUPT 20//3
+#define HANDBRAKE_INTERRUPT 21

@@ -1,0 +1,21 @@
+			FM					FS
+	millis		V	A	W	Wh		V	A	W	Wh	<-- top two rows written from PROGMEM constant, not sent
+FC	FFFFEEEE	02.3	23.1	9038	29399		02.3	23.1	9038	29399
+
+
+
+			M1		M2		M3		M4
+	millis		V	A	V	A	V	A	V	A	<-- top two rows written from PROGMEM constant, not sent
+Mt	FFFFFFFF	04.2	00.5	04.2	00.5	03.9	01.0	05.0	01.5
+
+
+// millis transmitted in full 8-digit HEX format, overflows in more than 4 days
+// computer parse:
+	volts graph
+	amps graph
+
+
+Computer side graphing app:
+Volt graph
+Amp graph
+Watt graph (only fuel cell)
