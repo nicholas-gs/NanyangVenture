@@ -3,6 +3,7 @@
  Created:	6/24/2019 7:25:53 PM
  Author:	MX
 */
+#include <Wire.h>
 #include <Speedometer.h>
 #include <RelayModule.h>
 #include <avr\wdt.h>

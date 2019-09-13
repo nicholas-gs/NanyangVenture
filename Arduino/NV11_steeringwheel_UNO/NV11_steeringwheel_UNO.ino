@@ -14,6 +14,7 @@ NV11Commands dataCommands;
 bool canAvail;
 uint8_t prevRead[20] = { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1 }; // store previous digitalReads to artificially detect "Rising edge"
 // the setup function runs once when you press reset or power the board
+//Since we want to check if button was pressed and then released.
 void setup() {
 	Serial.begin(9600);
 

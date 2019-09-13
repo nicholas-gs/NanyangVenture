@@ -42,6 +42,7 @@ void NV11BMS::packString(char *str)
 
 
 #ifdef __AVR__
+	//Since AVR does not support float printing, have to use dtostrf
 	char voltStr[5], ampStr[5], minCellVoltStr[5];
 	dtostrf(volt, 4, 1, voltStr);
 	dtostrf(amp, 4, 1, ampStr);

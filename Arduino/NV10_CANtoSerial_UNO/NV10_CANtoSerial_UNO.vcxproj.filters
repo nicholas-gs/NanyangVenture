@@ -15,16 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="NV11_steeringwheel_UNO.ino" />
+    <None Include="NV10_CANtoSerial_UNO.ino" />
     <None Include="src\arduino folders read me.txt">
       <Filter>Misc Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="__vm\.NV11_steeringwheel_UNO.vsarduino.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pins_steeringwheel.h">
+    <ClInclude Include="__vm\.NV10_CANtoSerial_UNO.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

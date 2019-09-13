@@ -163,17 +163,27 @@ void TaskLogFuelCell(void *pvParameters)
 		if (bytesRead > 0)
 		{
 			s.data[bytesRead - 1] = '\0'; // manually null-terminate. Rewrite '\r' into '\0'
-			// log the raw data
-			s.setLogSend(true, false, "FCraw.txt");
+			// 1. Log the raw data into the SD card and send via XBee
+			s.setLogSend(true, true, "FCraw.txt");
 			xQueueSend(queueForLogSend, &s, 100);
-			// CAN the processed fc data
+			// 2. CAN the processed fuel cell data
 			dataFC.insertData(s.data); // THIS will destroy s.data! Don't send s anymore after this line
 			dataFC.packCAN(&f);
-			xQueueSend(queueForCAN, &f, 100);
-			// subsequently, do not log the processed data, but still send CAN to the dashboard
+			xQueueSend(queueForCAN, &f, 100); // subsequently, do not log the processed data, but still send CAN to the dashboard
+			/*
+			s.data[bytesRead - 1] = '\0'; // manually null-terminate. Rewrite '\r' into '\0'
+			// 1. Log the raw data into the SD card
+			s.setLogSend(true, false, "FCraw.txt");
+			xQueueSend(queueForLogSend, &s, 100);
+			// 2. CAN the processed fuel cell data
+			dataFC.insertData(s.data); // THIS will destroy s.data! Don't send s anymore after this line
+			dataFC.packCAN(&f);
+			xQueueSend(queueForCAN, &f, 100); // subsequently, do not log the processed data, but still send CAN to the dashboard
+			// 3. Send the processed data via XBee
 			s.setLogSend(false, true, "FC.txt");
 			dataFC.packString(s.data);
 			xQueueSend(queueForLogSend, &s, 100);
+			*/
 		}
 		vTaskDelay(pdMS_TO_TICKS(450));
 	}
@@ -244,7 +254,7 @@ void TaskLogCurrentSensor(void *pvParameters)
 		capCurrent = getMedian(capCurrents);
 		float capInCurrent = capCurrent > 0 ? capCurrent : 0;
 		float capOutCurrent = capCurrent > 0 ? 0 : -capCurrent;
-		motorCurrent = getMedian(motorCurrents);
+		motorCurrent = getMedian(motorCurrents); //TODO: Check if median needs to be taken. Current is okay, check voltage measurement.
 		motorVoltage = getMedian(motorVoltages);
 		dataCS.insertData(motorVoltage, capInCurrent, capOutCurrent, motorCurrent);
 		dataCSStats.insertData(motorVoltage, motorCurrent);

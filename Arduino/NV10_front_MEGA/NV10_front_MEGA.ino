@@ -10,7 +10,7 @@
 #include <Arduino_FreeRTOS.h>
 #include <queue.h>
 #include "Pins_front.h"
-#include <MemoryFree/MemoryFree.h>
+#include <MemoryFree.h>
 
 #include <NV10AccesoriesStatus.h>
 #include <NV11Commands.h>
@@ -169,6 +169,7 @@ void TaskBlink(void* pvParameters)
 		if (sigOn)
 		{
 			sigOn = false;
+			
 			setRGB(lstrip, PIXELS, NO_COLOR);
 			setRGB(rstrip, PIXELS, NO_COLOR);
 			digitalWrite(LED_BUILTIN, LOW);

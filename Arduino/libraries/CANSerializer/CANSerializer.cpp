@@ -9,6 +9,7 @@
 
 bool CANSerializer::init(uint8_t cs, uint16_t kbps)
 {
+	//cs = Chip Select
 	byte speedset;
 	switch (kbps)
 	{

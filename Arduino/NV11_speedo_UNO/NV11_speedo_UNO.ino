@@ -3,6 +3,7 @@
  Created:	2/18/2019 3:14:55 PM
  Author:	MX
 */
+#include <ILI9488.h>
 #include <CANSerializer.h>
 #include <NV11DataSpeedo.h>
 

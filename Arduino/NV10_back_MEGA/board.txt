@@ -1,3 +1,0 @@
-# NV10_back build property overrides
-#
-build.extra_flags=-I "{build.path}" -include build_options.h

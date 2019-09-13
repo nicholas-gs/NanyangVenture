@@ -9,13 +9,16 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
+    <Filter Include="Misc Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>xml;json;txt;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="NV10_dashboard_DUE.ino" />
+    <None Include="src\arduino folders read me.txt">
+      <Filter>Misc Files</Filter>
+    </None>
     <None Include="Utilities.ino" />
   </ItemGroup>
   <ItemGroup>
@@ -28,19 +31,19 @@
     <ClInclude Include="BarWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DashboardScreens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="DataWidget.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Pins_dashboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Widget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Pins_dashboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DashboardScreens.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,6 +54,9 @@
     <ClCompile Include="BarWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DashboardScreens.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="DataWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -58,9 +64,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Widget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DashboardScreens.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
