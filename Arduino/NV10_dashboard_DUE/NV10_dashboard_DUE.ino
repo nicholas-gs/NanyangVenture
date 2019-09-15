@@ -9,6 +9,25 @@ WARNING
 
 	DO NOT ENABLE debug(...) in this script. Verified to malfunction.
 */
+
+/*
+2-Screen Dashboard Plan
+
+Screen 1:
+	1. Speed---
+	2. L-Sig. and R-Sig.---
+	3. Current lap time and lap time needed
+	4. Current lap number
+	5. Headlight On? 
+	6. FC overheating?---
+	7. FC status---
+Screen 2:
+	1. Motor voltage(From FC)---
+	3. Motor current(V1 - NA,    V2 - From shunt)
+	4. FC energy usage(V1 - NA,  V2 - From Shunt+Voltage divider or Watt Meter)
+	5. FC power usage(From FC)---
+	
+*/
 #include "DashboardScreens.h"
 #include "ArrowWidget.h"
 #include "BarWidget.h"
@@ -113,10 +132,15 @@ void loop()
 		{
 			dataAcc.unpackString(s);
 		}
+		else if (dataCommands.checkMatchString(s))
+		{
+			dataCommands.unpackString(s);
+			d.dashboardNextValueTime(dataCommands.getLapTime());
+		}
 	}
 	// output CAN strings based on buttons inputs (already handled by interrupts)
 
-	if (dataAcc.dataRequiresBroadcast())
+	if (dataAcc.dataHasChanged())
 	{
 		d.dashboardToggleSig(dataAcc.getLsig(), dataAcc.getRsig());
 		dataAcc.packString(s);
@@ -124,7 +148,7 @@ void loop()
 		debugSerialPort.print("<S> ");
 		debugSerialPort.println(s);
 	}
-	if (dataCommands.dataRequiresBroadcast())
+	if (dataCommands.dataHasChanged())
 	{
 		dataCommands.packString(s);
 		CANSerialPort.println(s);

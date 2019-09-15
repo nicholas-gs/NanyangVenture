@@ -32,6 +32,11 @@ void NV11Commands::triggerLapsReset()
 	lapCounterReset = triggered;
 }
 
+void NV11Commands::setLapTime(uint8_t time)
+{
+	lapTime = time;
+}
+
 void NV11Commands::triggerShutdownRPi()
 {
 	shutdownPi = triggered;
@@ -44,6 +49,11 @@ uint8_t NV11Commands::getHorn()
 uint8_t NV11Commands::getLapTrig()
 {
 	return lapCounter;
+}
+
+uint8_t NV11Commands::getLapTime()
+{
+	return lapTime;
 }
 
 void NV11Commands::packString(char *str)
@@ -69,7 +79,7 @@ void NV11Commands::unpackString(char * str)
 	shutdownPi = atoi(ptr);
 }
 
-bool NV11Commands::dataRequiresBroadcast()
+bool NV11Commands::dataHasChanged()
 {
 	for (int i = 0; i < CANLength; i++)
 	{

@@ -144,6 +144,11 @@ void DashboardScreens::dashboardNextValuesCS(int volts, int ampMotor)
 	dashboardNextValuesCS(volts, 0, 0, ampMotor);
 }
 
+void DashboardScreens::dashboardNextValueTime(int time)
+{
+	time_txt.updateFloat((float)time);
+}
+
 void DashboardScreens::dashboardNextValuesSpeed(int speedKmh)
 {
 	if (smTimeoutCounter > smTimeout)

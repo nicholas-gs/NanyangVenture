@@ -57,7 +57,6 @@
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
   <ImportGroup Label="Shared">
-    <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_GFX_Library\Adafruit_GFX_Library-1.2.3.vcxitems" Label="Shared" />

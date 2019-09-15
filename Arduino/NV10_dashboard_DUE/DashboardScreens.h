@@ -47,6 +47,7 @@ class DashboardScreens
 	//TextWidget pressure_txt = TextWidget(&rightScreen, SCREENWIDTH, 0, 140, 80, alignRight, alignTop);
 	//TextWidget energy_txt = TextWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT / 2 - 40 + 20, 400, 80, alignCenter, alignCenter);
 	//BarWidget energy_bar = BarWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT / 2 + 40 + 20, 400, 80, alignCenter, alignCenter);
+	TextWidget time_txt = TextWidget(&centerScreen, SCREENWIDTH / 2, SCREENHEIGHT - btmOffset, 80, 60, alignLeft, alignCenter);
 
 	const uint8_t fcTimeout = 20, csTimeout = 10, smTimeout = 10;
 	uint8_t fcTimeoutCounter, csTimeoutCounter, smTimeoutCounter;
@@ -57,6 +58,7 @@ public:
 	void dashboardNextValuesFC(int volts, int amps, float pressure, int temperature, const char* status);
 	void dashboardNextValuesCS(int volts, int ampCapIn, int ampCapOut, int ampMotor);
 	void dashboardNextValuesCS(int volts, int ampMotor);
+	void dashboardNextValueTime(int time);
 	void dashboardNextValuesSpeed(int speedKmh);
 	void dashboardToggleSig(int lsig, int rsig);
 };

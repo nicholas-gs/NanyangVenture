@@ -59,7 +59,7 @@ public:
 	virtual void packString(char * str);
 	virtual void unpackString(char * str);
 	// by default, data requires broadcast when changed since last call
-	bool dataRequiresBroadcast();
+	bool dataHasChanged();
 	void printRaw();
 protected:
 	DataPoint(const char* strHeader, uint8_t CANId, const uint8_t CANLength);

@@ -60,7 +60,6 @@
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel-1.1.3.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems" Label="Shared" />
-    <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems" Label="Shared" />
     <Import Project="..\..\..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems" Label="Shared" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

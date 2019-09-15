@@ -38,10 +38,10 @@ Main job is to react to Dashboard's commands and trigger car accessories accordi
 5. CANSerializer
 6. Servo
 
-TaskToggle -> Poll for brake light status, poll for horn press, poll for headlight status
-TaskBlink -> Toggle left and right signal lights for indicator and headlight
-TaskMoveWiper -> Change wiper position based on polled value
-TaskCAN -> If CAN in queue, send CAN. If CAN received, convert to Serial and check if dataAcc(put taskBlink and taskMoveWiper in ready state) or dataCommand.
+TaskToggle -> Poll for brake light status, poll for horn press, poll for headlight status  
+TaskBlink -> Toggle left and right signal lights for indicator and headlight  
+TaskMoveWiper -> Change wiper position based on polled value  
+TaskCAN -> If CAN in queue, send CAN. If CAN received, convert to Serial and check if dataAcc(put taskBlink and taskMoveWiper in ready state) or dataCommand.  
 If Brake interrupt, immediately set brake light to on
 
 `Lap trig not implemented`
@@ -52,13 +52,13 @@ Reads wheel speed and motor speed separately. Acts as middleman between switch a
 
 1. Wire - I2C communication
 2. Speedometer - Get speed and total distance
-3. RelayModule - ?
+3. RelayModule - Controlling the relay
 4. avr/wdt - WatchDog timer
 
 ## NV10_Back_MEGA
 
 The main script for data gathering in NV10.
-Gets input from fuel cell, current sensor, and speedometer
+Gets input from fuel cell, current sensor, and speedometer.  
 Outputs data to SD card to serve as "black box", and XBee for ground station live data feed.
 
 1. MemoryFree, FreeRTOS, NeoPixel
@@ -89,7 +89,7 @@ Data Sent:
 ## NV10_dashboard_DUE
 
 1. NV10FuelCell, NV10CurrentSensor, NV10CurrentSensorStats, NV10AccessoriesStatus, NV11DataSpeedo, NV11Commands, FREERTOS_ARM
-2. DashboardScreens - Show speed, motorAmp, motorVolt, lsigArrow, rsigArrow. If data doesn't arrove, make widget empty(dashboardNextFrame). If it arrives, update value and toggle lsig and rsig.
+2. DashboardScreens - Show speed, motorAmp, motorVolt, lsigArrow, rsigArrow. If data doesn't arrive, make widget empty(dashboardNextFrame). If it arrives, update value and toggle lsig and rsig.
 3. ArrowWidget - draw, wipe arrows
 4. BarWidget - draw, set value using DataWidget
 5. TextWidget - settings for and value of text
@@ -106,7 +106,7 @@ Similar to NV10_CANtoSerial_UNO except with different datapoints
 2. NV11AccessoriesStatus - Get and set for Lsig, Rsig, hazard, headlights, brake light, wiper, 4-wheel steering, regenerative breaking and pack and unpack string.
 3. NV11BMS - From BMS, get voltage, current, temperature, pack and unpack CAN, pack and unpack string.
 
-Incoming data -> Speedo, BMS, Accessories, Commands
+Incoming data -> Speedo, BMS, Accessories, Commands  
 Outgoing data -> Accessories  
 If CAN received, convert to string
 If string received, convert to CAN

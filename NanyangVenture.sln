@@ -73,8 +73,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Rosserial_Arduino_Library-0
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SdFat", "..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems", "{5C152C9F-9ADE-46A4-81BB-65A5DC54AC67}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializer-1.0.0", "..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems", "{0B06F79B-FECF-4D65-A493-1DD47D2957E2}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RelayModule-1.0.0", "..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems", "{CC779671-7CF0-4073-9DEC-F8C11CA19800}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeRTOS_AVR-2015.11.12", "..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_AVR\FreeRTOS_AVR-2015.11.12.vcxitems", "{7429BA55-5A04-434E-A36C-9832292B40EA}"
@@ -85,7 +83,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_back_MEGA", "Arduino\N
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{0b06f79b-fecf-4d65-a493-1dd47d2957e2}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{10d895aa-b828-4bd4-b929-83cfea359cc3}*SharedItemsImports = 9
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
@@ -98,7 +95,6 @@ Global
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{413b1256-cf59-4848-9488-94e77f70c4cb}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4a33670d-d01c-43da-9d00-c0dd330de92e}*SharedItemsImports = 9
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{4db19377-19de-4b9d-b8cc-d8769e8f8e82}*SharedItemsImports = 9
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
@@ -116,7 +112,6 @@ Global
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel-1.1.3.vcxitems*{b00bcbbb-e6e5-4eac-b2b9-4bc69c9221d6}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel-1.1.3.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
 		..\..\ide\hardware\arduino\avr\libraries\Wire\Wire.vcxitems*{c9bc5c57-e50b-4d50-8c9e-a679c4d22ef5}*SharedItemsImports = 4
@@ -126,7 +121,6 @@ Global
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS\FreeRTOS-10.0.0-1.vcxitems*{e104d7c3-053b-4a4c-8b07-16be5b1b6007}*SharedItemsImports = 9
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{e3af1d76-18e9-4f28-86fc-56cdf2ebcdc0}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_GFX_Library\Adafruit_GFX_Library-1.2.3.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MemoryFree\MemoryFree-0.0.0.vcxitems*{fbb1f15b-bfa4-4fa4-ad19-32754ff5f57e}*SharedItemsImports = 9
@@ -342,7 +336,6 @@ Global
 		{4A33670D-D01C-43DA-9D00-C0DD330DE92E} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{413B1256-CF59-4848-9488-94E77F70C4CB} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{5C152C9F-9ADE-46A4-81BB-65A5DC54AC67} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
-		{0B06F79B-FECF-4D65-A493-1DD47D2957E2} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{CC779671-7CF0-4073-9DEC-F8C11CA19800} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{7429BA55-5A04-434E-A36C-9832292B40EA} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{10D895AA-B828-4BD4-B929-83CFEA359CC3} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
