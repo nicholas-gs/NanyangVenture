@@ -46,6 +46,10 @@ void DashboardScreens::dashboardInit()
 	//pressure_txt.setColors(ILI9488_WHITE, ILI9488_BLUE);
 	//energy_txt.setColors(ILI9488_WHITE, ILI9488_BLUE);
 	//energy_bar.setColors(ILI9488_YELLOW, ILI9488_BLACK);
+
+	requiredLapTime = 0;
+	//TODO: Find actual total time given
+	timeLeft = 30000;
 }
 void DashboardScreens::dashboardNextFrame()
 {
@@ -142,6 +146,14 @@ void DashboardScreens::dashboardNextValuesCS(int volts, int ampCapIn, int ampCap
 void DashboardScreens::dashboardNextValuesCS(int volts, int ampMotor)
 {
 	dashboardNextValuesCS(volts, 0, 0, ampMotor);
+}
+
+void DashboardScreens::dashboardNextValueTime(int time, int lapCount)
+{
+	timeLeft -= time;
+	//TODO: Find actual number of laps
+	time_required_txt.updateFloat((timeLeft/(10-lapCount)));
+	dashboardNextValueTime(0);
 }
 
 void DashboardScreens::dashboardNextValueTime(int time)

@@ -42,6 +42,11 @@ void NV11Commands::triggerShutdownRPi()
 	shutdownPi = triggered;
 }
 
+void NV11Commands::increaseLapCount()
+{
+	lapCount++;
+}
+
 uint8_t NV11Commands::getHorn()
 {
 	return horn;
@@ -54,6 +59,17 @@ uint8_t NV11Commands::getLapTrig()
 uint8_t NV11Commands::getLapTime()
 {
 	return lapTime;
+}
+
+uint8_t NV11Commands::getLapCount()
+{
+	return lapCount;
+}
+
+void NV11Commands::initData(uint8_t time, uint8_t lap)
+{
+	this->lapCount = lap;
+	this->timeStamp = time;
 }
 
 void NV11Commands::packString(char *str)

@@ -16,16 +16,15 @@ WARNING
 Screen 1:
 	1. Speed---
 	2. L-Sig. and R-Sig.---
-	3. Current lap time and lap time needed
-	4. Current lap number
-	5. Headlight On? 
-	6. FC overheating?---
-	7. FC status---
+	3. Headlight On?---
+	4. FC overheating?---
+	5. FC status---
 Screen 2:
-	1. Motor voltage(From FC)---
-	3. Motor current(V1 - NA,    V2 - From shunt)
-	4. FC energy usage(V1 - NA,  V2 - From Shunt+Voltage divider or Watt Meter)
-	5. FC power usage(From FC)---
+	1. Motor current(From Shunt) * Motor Voltage(From voltage divider) * Time = Energy (NV10CurrentSensorStats)
+	2. FC Draw Voltage---
+	3. Current lap time---
+	4. Lap time needed
+	5. Current lap number
 	
 */
 #include "DashboardScreens.h"
@@ -102,6 +101,7 @@ void setup()
 	setDebounce(pins, sizeof(pins) / sizeof(pins[0]));
 
 	dataAcc.insertData(0, 0, 0, 0, 0, 0);
+	dataCommands.initData(0, 0);
 }
 void loop()
 {
@@ -135,6 +135,9 @@ void loop()
 		else if (dataCommands.checkMatchString(s))
 		{
 			dataCommands.unpackString(s);
+			if (dataCommands.getLapTrig()) {
+				d.dashboardNextValueTime(dataCommands.getLapTime(), dataCommands.getLapCount());
+			}
 			d.dashboardNextValueTime(dataCommands.getLapTime());
 		}
 	}

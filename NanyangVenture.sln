@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Suites", "Test Suites"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DUE_screen_test", "Arduino\#TestSuites\DUE_screen_test\DUE_screen_test.vcxproj", "{6D4787D1-DF84-488E-9DCE-5608BC9B2777}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializer", "Arduino\libraries\CANSerializer\CANSerializer.vcxitems", "{4DB19377-19DE-4B9D-B8CC-D8769E8F8E82}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CAN_send", "..\libraries\MCP_CAN_lib\examples\CAN_send\CAN_send.vcxproj", "{655F68FF-1C08-4FD7-953A-415DD29271D5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CAN_receive", "..\libraries\MCP_CAN_lib\examples\CAN_receive\CAN_receive.vcxproj", "{33A793D8-0A11-470D-9498-8523521D1EAC}"
@@ -81,20 +79,21 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeRTOS_ARM-2015.11.12", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_back_MEGA", "Arduino\NV10_back_MEGA\NV10_back_MEGA.vcxproj", "{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializer-1.0.0", "..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems", "{0B06F79B-FECF-4D65-A493-1DD47D2957E2}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{0b06f79b-fecf-4d65-a493-1dd47d2957e2}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{10d895aa-b828-4bd4-b929-83cfea359cc3}*SharedItemsImports = 9
-		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
-		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{1fa8d223-0a81-4c64-ab42-e7099ed04b0a}*SharedItemsImports = 4
+		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		..\libraries\MCP_CAN_lib\MCP_CAN_lib.vcxitems*{3e3daf3b-9bce-4ba7-aac5-b5be3b96b653}*SharedItemsImports = 4
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{3e3daf3b-9bce-4ba7-aac5-b5be3b96b653}*SharedItemsImports = 4
 		..\libraries\MCP_CAN_lib\MCP_CAN_lib.vcxitems*{3f8b2017-8e31-43fb-bc4c-a95680ca7683}*SharedItemsImports = 4
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{3f8b2017-8e31-43fb-bc4c-a95680ca7683}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{413b1256-cf59-4848-9488-94e77f70c4cb}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4a33670d-d01c-43da-9d00-c0dd330de92e}*SharedItemsImports = 9
-		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{4db19377-19de-4b9d-b8cc-d8769e8f8e82}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
@@ -104,6 +103,7 @@ Global
 		Arduino\libraries\RelayModule\RelayModule.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
+		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{71018a52-5d0d-4b0b-85a0-ca5825c21149}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MemoryFree\MemoryFree-0.0.0.vcxitems*{71018a52-5d0d-4b0b-85a0-ca5825c21149}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_AVR\FreeRTOS_AVR-2015.11.12.vcxitems*{7429ba55-5a04-434e-a36c-9832292b40ea}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{924b5ac3-01eb-4ea4-81c9-85522f727691}*SharedItemsImports = 9
@@ -119,7 +119,6 @@ Global
 		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{cc779671-7cf0-4073-9dec-f8c11ca19800}*SharedItemsImports = 9
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{cddcd64e-35b1-4c6b-b6fe-187d977dccc4}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS\FreeRTOS-10.0.0-1.vcxitems*{e104d7c3-053b-4a4c-8b07-16be5b1b6007}*SharedItemsImports = 9
-		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{e3af1d76-18e9-4f28-86fc-56cdf2ebcdc0}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_GFX_Library\Adafruit_GFX_Library-1.2.3.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
@@ -314,7 +313,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6D4787D1-DF84-488E-9DCE-5608BC9B2777} = {D73944EA-C027-4B9A-B26C-CF8857527539}
-		{4DB19377-19DE-4B9D-B8CC-D8769E8F8E82} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{655F68FF-1C08-4FD7-953A-415DD29271D5} = {D73944EA-C027-4B9A-B26C-CF8857527539}
 		{33A793D8-0A11-470D-9498-8523521D1EAC} = {D73944EA-C027-4B9A-B26C-CF8857527539}
 		{9A237D3E-070C-4D33-A444-0B1CDA33FE67} = {D73944EA-C027-4B9A-B26C-CF8857527539}
@@ -339,6 +337,7 @@ Global
 		{CC779671-7CF0-4073-9DEC-F8C11CA19800} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{7429BA55-5A04-434E-A36C-9832292B40EA} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 		{10D895AA-B828-4BD4-B929-83CFEA359CC3} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
+		{0B06F79B-FECF-4D65-A493-1DD47D2957E2} = {B731DFF7-A7B2-4F18-831B-D04250650B2F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D50621B3-45DA-4D63-A156-3461EB4C4703}

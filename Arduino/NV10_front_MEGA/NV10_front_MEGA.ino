@@ -29,7 +29,7 @@ Adafruit_NeoPixel lstrip = Adafruit_NeoPixel(PIXELS, LSIG_OUTPUT, NEO_GRB + NEO_
 Adafruit_NeoPixel rstrip = Adafruit_NeoPixel(PIXELS, RSIG_OUTPUT, NEO_GRB + NEO_KHZ800);
 const uint32_t SIG_COLOR = Adafruit_NeoPixel::Color(255, 165, 0);
 const uint32_t NO_COLOR = Adafruit_NeoPixel::Color(0, 0, 0);
-uint8_t startTime = 0;
+unsigned long startTime = 0;
 
 // define globals
 CANSerializer serializer;
@@ -140,14 +140,15 @@ void TaskToggle(void* pvParameters)
 			// Reset start time of stopwatch to current time. CAN broadcast that time is 0
 			debugSerialPort.println("NEW LAP");
 			startTime = millis();
-			dataCommands.setLapTime(0);
+			dataCommands.increaseLapCount();
 			dataCommands.packCAN(&f);
 			xQueueSend(queueForCAN, &f, 100);
+			dataCommands.setLapTime(0);
 		}
 		else
 		{
 			//Calculate time elapsed from new lap start. CAN broadcast current time elapsed.
-			dataCommands.setLapTime(millis() - startTime);
+			dataCommands.setLapTime((millis() - startTime)/1000);
 			dataCommands.packCAN(&f);
 			xQueueSend(queueForCAN, &f, 100);
 		}

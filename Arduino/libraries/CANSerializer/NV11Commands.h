@@ -12,6 +12,7 @@ class NV11Commands:public DataPoint
 	 uint8_t& lapCounterReset = data.Byte[2];
 	 uint8_t& shutdownPi = data.Byte[3];
 	 uint8_t& lapTime = data.Byte[4];
+	 uint8_t& lapCount = data.Byte[5];
 	 enum eActivateStats {
 		 notTriggered,
 		 triggered
@@ -28,9 +29,12 @@ class NV11Commands:public DataPoint
 	void triggerLapsReset();
 	void setLapTime(uint8_t time);
 	void triggerShutdownRPi();
+	void increaseLapCount();
 	uint8_t getHorn();
 	uint8_t getLapTrig();
 	uint8_t getLapTime();
+	uint8_t getLapCount();
+	void initData(uint8_t time, uint8_t lap);
 	void packString(char*);
 	void unpackString(char * str);
 	// commands only require broadcast when any of it is triggered
