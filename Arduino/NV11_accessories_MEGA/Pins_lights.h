@@ -6,3 +6,4 @@
 
 #define CAN_SPI_CS 7
 #define CAN_INTERRUPT 20
+#define SD_SPI_CS_PIN 44

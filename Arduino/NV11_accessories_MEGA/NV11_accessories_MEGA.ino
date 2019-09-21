@@ -10,9 +10,12 @@
 #include <NV11AccesoriesStatus.h>
 #include <RelayModule.h>
 #include "Pins_lights.h"
+//For loggin data to SD Card
+#include <NV11BMS.h>
 
 CANSerializer serializer;
 NV11AccesoriesStatus dataAcc;
+NV11BMS dataBMS;
 RelayModule brakeRelay(BRAKELIGHT_OUTPUT, RelayModule::NO);
 RelayModule runninglightRelay(RUNNINGLIGHT_OUTPUT, RelayModule::NC);
 RelayModule lsigRelay(LSIG_OUTPUT, RelayModule::NO);
@@ -20,6 +23,11 @@ RelayModule rsigRelay(RSIG_OUTPUT, RelayModule::NO);
 bool sigOn;
 unsigned long sigNextProc = 0;
 const unsigned long sigInterval = 500; // 500ms delay between each signal light flash
+
+HardwareSerial& debugSerialPort = Serial;
+char dataBMSString[100];
+bool SD_avail = false;
+SdFat card;
 
 void setup() {
 	brakeRelay.init();
@@ -34,6 +42,10 @@ void setup() {
 	attachInterrupt(digitalPinToInterrupt(CAN_INTERRUPT), CAN_ISR, FALLING);
 
 	Serial.begin(9600);
+
+	SD_avail = initSD(card);
+	debugSerialPort.print("SD avail: ");
+	debugSerialPort.println(SD_avail);
 }
 
 // loop function manages signal lights blinking
@@ -84,6 +96,16 @@ void CAN_ISR()
 			runninglightRelay.activate();
 		else
 			runninglightRelay.deactivate();
+	}
+	if (dataBMS.checkMatchCAN(&f))
+	{
+		//TODO: Save the BMS data to SD card
+		dataBMS.packString(dataBMSString);
+		if (SD_avail) {
+			File writtenFile = card.open("BMS_data.txt", FILE_WRITE);
+			writtenFile.println(dataBMSString);
+			writtenFile.close();
+		}
 	}
 }
 
