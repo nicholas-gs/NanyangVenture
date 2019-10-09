@@ -25,6 +25,26 @@ class DashboardScreens
 	//ILI9488 leftScreen = ILI9488(LCDLEFT_SPI_CS, LCD_OUTPUT_DC);
 	//ILI9488 rightScreen = ILI9488(LCDRIGHT_SPI_CS, LCD_OUTPUT_DC);
 
+	/*
+	//Screen 1
+	ILI9488 leftScreen = ILI9488(LCDLEFT_SPI_CS, LCD_OUTPUT_DC);
+	TextWidget speedTxt = TextWidget(&leftScreen, SCREENWIDTH/2, SCREENHEIGHT/2, 180, 180, alignCenter, alignTop);
+	ArrowWidget lSigArrow = ArrowWidget(&leftScreen, SCREENWIDTH / 2 - 120, SCREENHEIGHT / 2 - 30, 80, 80, RIGHT_TO_LEFT);
+	ArrowWidget rSigArrow = ArrowWidget(&leftScreen, SCREENWIDTH / 2 + 120, SCREENHEIGHT / 2 - 30, 80, 80, LEFT_TO_RIGHT);
+	TextWidget status_txt = TextWidget(&leftScreen, SCREENWIDTH / 2, SCREENHEIGHT / 2 + 0, 150, 75, alignRight, alignBtm);
+	//TODO: Add Headlight and Temperature icons
+	*/
+
+	/*
+	//Screen 2
+	ILI9488 rightScreen = ILI9488(LCDRIGHT_SPI_CS, LCD_OUTPUT_DC);
+	TextWidget motorVolt_txt = TextWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT - btmOffset, 80, 60, alignLeft, alignCenter);
+	BarWidget motorVolt_bar = BarWidget(&rightScreen, SCREENWIDTH / 2 + centerSpacing, SCREENHEIGHT - btmOffset, 150, 60, LEFT_TO_RIGHT);
+	TextWidget energy_txt = TextWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT / 2 + 0, 150, 75, alignRight, alignBtm);
+	TextWidget lapTime_txt = TextWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT - btmOffset, 80, 60, alignLeft, alignTop);
+	TextWidget lapTimeNeeded_txt = TextWidget(&rightScreen, SCREENWIDTH / 2, SCREENHEIGHT - btmOffset, 80, 60, alignRight, alignTop);
+	*/
+
 	// center screen x offset: +25, -5
 	TextWidget speedTxt = TextWidget(&centerScreen, SCREENWIDTH / 2, SCREENHEIGHT / 2, 150, 150, alignCenter, alignBtm);
 	ArrowWidget lSigArrow = ArrowWidget(&centerScreen, SCREENWIDTH/2 - 120, SCREENHEIGHT / 2 - 30, 100, 80, RIGHT_TO_LEFT);

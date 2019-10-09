@@ -99,7 +99,6 @@ void CAN_ISR()
 	}
 	if (dataBMS.checkMatchCAN(&f))
 	{
-		//TODO: Save the BMS data to SD card
 		dataBMS.packString(dataBMSString);
 		if (SD_avail) {
 			File writtenFile = card.open("BMS_data.txt", FILE_WRITE);

@@ -19,6 +19,7 @@
     <None Include="src\arduino folders read me.txt">
       <Filter>Misc Files</Filter>
     </None>
+    <None Include="Utilities.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.NV11_accessories_MEGA.vsarduino.h">
