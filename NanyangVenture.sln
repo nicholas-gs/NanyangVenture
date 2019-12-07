@@ -81,9 +81,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_back_MEGA", "Arduino\N
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializer-1.0.0", "..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems", "{0B06F79B-FECF-4D65-A493-1DD47D2957E2}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_autonomous_MEGA", "NV11_autonomous_MEGA\NV11_autonomous_MEGA.vcxproj", "{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{0b06f79b-fecf-4d65-a493-1dd47d2957e2}*SharedItemsImports = 9
+		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{0e4ad353-cc10-41b1-9e28-ebd12ba3700a}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{10d895aa-b828-4bd4-b929-83cfea359cc3}*SharedItemsImports = 9
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
@@ -307,6 +310,14 @@ Global
 		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x64.ActiveCfg = Release|Win32
 		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x86.ActiveCfg = Release|Win32
 		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x86.Build.0 = Release|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|x64.ActiveCfg = Debug|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|x86.ActiveCfg = Debug|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|x86.Build.0 = Debug|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x64.ActiveCfg = Release|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x86.ActiveCfg = Release|Win32
+		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

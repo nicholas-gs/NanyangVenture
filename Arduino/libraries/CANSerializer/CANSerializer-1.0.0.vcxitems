@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding ="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
+  <PropertyGroup Label="Globals" >
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{0b06f79b-fecf-4d65-a493-1dd47d2957e2}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)CANSerializer.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)DataPoint.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)DataPointTemplate.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV10AccesoriesStatus.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV10CurrentSensor.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV10CurrentSensorStats.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV10FuelCell.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV11AccesoriesStatus.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV11BMS.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV11Commands.cpp" />
+<ClCompile Include="$(MSBuildThisFileDirectory)NV11DataSpeedo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)CANSerializer.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)DataPoint.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)DataPointTemplate.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)Debug.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV10AccesoriesStatus.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV10CurrentSensor.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV10CurrentSensorStats.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV10FuelCell.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV11AccesoriesStatus.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV11BMS.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV11Commands.h" />
+<ClInclude Include="$(MSBuildThisFileDirectory)NV11DataSpeedo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="$(MSBuildThisFileDirectory)keywords.txt" />
+<Text Include="$(MSBuildThisFileDirectory)library.properties" />
+<Text Include="$(MSBuildThisFileDirectory)readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)CANSerializer.vcxitems" />
+<None Include="$(MSBuildThisFileDirectory)CANSerializer.vcxitems.filters" />
+  </ItemGroup>
+</Project>

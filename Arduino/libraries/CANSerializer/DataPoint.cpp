@@ -3,7 +3,7 @@
 // 
 
 #include "DataPoint.h"
-const char* STRING_HEADER[] = { "FC","CS","Cs","SM","H2","ST","CM","HB" };
+const char* STRING_HEADER[] = { "FC","CS","Cs","SM","H2","ST","CM","HB", "US" };
 //DataPoint::DataPoint(eEncodingPreset (&presets)[8])
 //{
 //	uint8_t overFlow = 0;
