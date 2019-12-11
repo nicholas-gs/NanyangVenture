@@ -97,6 +97,7 @@ Global
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{3f8b2017-8e31-43fb-bc4c-a95680ca7683}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{413b1256-cf59-4848-9488-94e77f70c4cb}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4a33670d-d01c-43da-9d00-c0dd330de92e}*SharedItemsImports = 9
+		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
