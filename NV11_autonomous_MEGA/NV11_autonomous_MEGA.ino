@@ -4,7 +4,6 @@
  Author:	Laksh
 */
 
-#include <SPI.h>
 #include <ros.h>
 #include <std_msgs/Float64.h>
 #include <ackermann_msgs/AckermannDriveStamped.h>

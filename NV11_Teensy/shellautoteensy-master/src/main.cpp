@@ -14,12 +14,18 @@
 #include <std_msgs/Float32.h>
 #include <ackermann_msgs/AckermannDriveStamped.h>
 #include <ackermann_msgs/AckermannDrive.h>
+// CAN Bus
+#include <FlexCAN.h>
 
 // CONFIGURATION PARAMETERS
 // Defines if ROS is being used or remote is being used
 // #define ROSMODE
 // Defines if control is via position (steps) or via velocity
 // #define STEPMODE
+
+// CAN Bus configuration
+#define CANTX 2
+#define CANRX 35
 
 // Interrupts configuration
 #define CHANNEL1 36
@@ -180,6 +186,9 @@ float normalise(float);
 
 float encoderCalc();
 
+// CAN Bus handler
+TeensyCANHandler canHandler;
+
 void setup()
 {
 
@@ -200,6 +209,16 @@ void setup()
   pinMode(ACCELDPIN, OUTPUT);
   pinMode(ACCELPPIN, OUTPUT);
   steering.setCurrentPosition(steering.currentPosition());
+  // Init for CAN bus
+  Can0.begin(1000000);
+  pinMode(CANTX, OUTPUT);
+  pinMode(CANRX, OUTPUT);
+  digitalWrite(CANTX, HIGH);
+  digitalWrite(CANRX, HIGH);
+
+  Can0.attachObj(&canHandler);
+  canHandler.attachGeneralHandler();
+
 #ifdef ROSMODE
   nh.initNode();
   nh.subscribe(sub);
