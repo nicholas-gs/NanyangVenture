@@ -1,8 +1,8 @@
 # Created by https://www.gitignore.io/api/visualstudio
 
-#*.sln
-#*.vs
-#*.vscode
+*.sln
+*.vs
+*.vscode
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
