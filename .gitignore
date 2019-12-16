@@ -2,7 +2,7 @@
 
 *.sln
 *.vs
-#*.vscode
+*.vscode
 
 ### VisualStudio ###
 ## Ignore Visual Studio temporary files, build results, and
