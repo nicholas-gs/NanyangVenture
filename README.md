@@ -145,6 +145,12 @@ Controls brake & signal lights.
 
 Handle signal lights, hazard lights, brake lights and headlights.
 
+## NV10_GroundStation
+
+GUI to visualize the data sent via the XBee. Also saves a local copy of the logged data.
+
+Utilises [LiveCharts](https://github.com/Live-Charts/Live-Charts).
+
 # Hardware
 
 1. For CAN logging emulator, set frequency to half since its oscillator is double. It also has a terminator built.
