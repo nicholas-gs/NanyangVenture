@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashBoard", "DashBoard.csproj", "{BB08DD9E-DDB5-46B6-9F90-ED57EBEA7080}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB08DD9E-DDB5-46B6-9F90-ED57EBEA7080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB08DD9E-DDB5-46B6-9F90-ED57EBEA7080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB08DD9E-DDB5-46B6-9F90-ED57EBEA7080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB08DD9E-DDB5-46B6-9F90-ED57EBEA7080}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DFCEAB6-A2FF-42EC-B4BC-EB2B395BD38F}
+	EndGlobalSection
+EndGlobal
