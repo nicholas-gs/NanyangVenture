@@ -1,6 +1,6 @@
 # Created by https://www.gitignore.io/api/visualstudio
 
-*.sln
+#*.sln
 *.vs
 *.vscode
 
@@ -349,3 +349,8 @@ DataVisualization_PC/.vscode/*
 __vm/
 \#*/
 /Utilities
+
+#vcxproj files
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
