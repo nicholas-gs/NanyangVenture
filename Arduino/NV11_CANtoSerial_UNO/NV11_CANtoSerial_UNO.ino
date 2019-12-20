@@ -10,12 +10,15 @@
 #include <NV11BMS.h>
 #include <NV11DataSpeedo.h>
 #include <NV11Commands.h>
+#include <NV11DataUltrasonic.h>
 CANSerializer serializer;
 NV11DataSpeedo dataSpeedo;
-NV11AccesoriesStatus dataAccesories;;
+NV11AccesoriesStatus dataAccesories;
 NV11BMS dataBMS;
 NV11Commands dataCommands;
-DataPoint* canListenList[] = { &dataSpeedo, &dataBMS, &dataCommands, &dataAccesories }; // incoming messages: speedo BMS
+NV11DataUltrasonic dataUltrasonic;
+
+DataPoint* canListenList[] = { &dataSpeedo, &dataBMS, &dataCommands, &dataAccesories, &dataUltrasonic }; // incoming messages: speedo BMS
 DataPoint* serialListenList[] = { &dataAccesories }; // outgoing messages: accessories
 void setup()
 {
@@ -33,11 +36,13 @@ void loop()
 	char fromSerialPort[100];
 	if (serializer.receiveCanFrame(&f))
 	{
+		Serial.println("Receiving CAN frame"); // Debug purpose
 		for (int i = 0; i < sizeof(canListenList) / sizeof(canListenList[0]); i++)
 		{
 			DataPoint& dataPoint = *canListenList[i];
 			if (dataPoint.checkMatchCAN(&f))
 			{
+				Serial.println("Match Can Frame"); // Debug purpose
 				dataPoint.unpackCAN(&f);
 				dataPoint.packString(toSerialPort);
 				Serial.println(toSerialPort);
