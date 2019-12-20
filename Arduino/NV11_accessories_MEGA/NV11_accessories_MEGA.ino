@@ -13,7 +13,9 @@
 //For loggin data to SD Card
 #include <NV11BMS.h>
 //For ultrasonic sensor
-#include "NV11DataUltrasonic.h"
+#include <NV11DataUltrasonic.h>
+// For calculating distance in cm from signal pin for ultrasonic sensor
+#define DISTANCE_FACTOR 58.138
 
 CANSerializer serializer;
 NV11AccesoriesStatus dataAcc;
@@ -28,21 +30,15 @@ unsigned long sigNextProc = 0;
 const unsigned long sigInterval = 500; // 500ms delay between each signal light flash
 
 //Pins for ultrasonic sensors
-const int trigPin1 = 2;
-const int trigPin2 = 4;
-const int trigPin3 = 6;
-const int trigPin4 = 8;
-const int trigPin5 = 10;
-const int trigPin6 = 12;
-const int trigPin7 = 24;
-const int echoPin1 = 3;
-const int echoPin2 = 5;
-const int echoPin3 = 7;
-const int echoPin4 = 9;
-const int echoPin5 = 11;
-const int echoPin6 = 13;
-const int echoPin7 = 25;
-int duration, distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
+const int sigPin1 = 2;
+const int sigPin2 = 4;
+const int sigPin3 = 6;
+const int sigPin4 = 8;
+const int sigPin5 = 10;
+const int sigPin6 = 12;
+const int sigPin7 = 24;
+
+int distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
 
 HardwareSerial& debugSerialPort = Serial;
 char dataBMSString[100];
@@ -57,25 +53,32 @@ void setup() {
 
 	runninglightRelay.activate();
 
+	// Maybe wiring is wrong for CAN?
 	serializer.init(CAN_SPI_CS);
 	pinMode(CAN_INTERRUPT, INPUT_PULLUP);
 	attachInterrupt(digitalPinToInterrupt(CAN_INTERRUPT), CAN_ISR, FALLING);
 
 	//Init the ultrasonic sensor pins
-	pinMode(trigPin1, OUTPUT); // Right front
-	pinMode(echoPin1, INPUT); 
-	pinMode(trigPin2, OUTPUT); // Right side
-	pinMode(echoPin2, INPUT); 
-	pinMode(trigPin3, OUTPUT); // Right back
-	pinMode(echoPin3, INPUT); 
-	pinMode(trigPin4, OUTPUT); // Left front
-	pinMode(echoPin4, INPUT);
-	pinMode(trigPin5, OUTPUT); // Left side
-	pinMode(echoPin5, INPUT);
-	pinMode(trigPin6, OUTPUT); // Left back
-	pinMode(echoPin6, INPUT);
-	pinMode(trigPin7, OUTPUT); // Front
-	pinMode(echoPin7, INPUT);
+	pinMode(sigPin1, OUTPUT); // Right front
+	digitalWrite(sigPin1, LOW);
+
+	pinMode(sigPin2, OUTPUT); // Right side
+	digitalWrite(sigPin2, LOW);
+
+	pinMode(sigPin3, OUTPUT); // Right back
+	digitalWrite(sigPin3, LOW);
+
+	pinMode(sigPin4, OUTPUT); // Left front
+	digitalWrite(sigPin4, LOW);
+
+	pinMode(sigPin5, OUTPUT); // Left side
+	digitalWrite(sigPin5, LOW);
+
+	pinMode(sigPin6, OUTPUT); // Left back
+	digitalWrite(sigPin6, LOW);
+
+	pinMode(sigPin7, OUTPUT); // Front
+	digitalWrite(sigPin7, LOW);
 
 	Serial.begin(9600);
 
@@ -86,6 +89,7 @@ void setup() {
 
 // loop function manages signal lights blinking
 void loop() {
+	CANFrame f;
 	// relay is PULLUP by default
 	// writing HIGH enables NC, disables NO
 	// writing LOW enables NO, disables NC
@@ -113,39 +117,54 @@ void loop() {
 				rsigRelay.activate();
 			}
 		}
+
+		// Get distance from all ultrasonic sensors
+		RightFront = read_ultrasonic(sigPin1);
+		RightSide = read_ultrasonic(sigPin2);
+		RightBack = read_ultrasonic(sigPin3);
+		LeftFront = read_ultrasonic(sigPin4);
+		LeftSide = read_ultrasonic(sigPin5);
+		LeftBack = read_ultrasonic(sigPin6);
+		Front = read_ultrasonic(sigPin7);
+		// Send distance readings through the CAN bus
+		CANFrame f;
+		dataUltra.insertData(RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front);
+		dataUltra.packCAN(&f);
+		bool sent = serializer.sendCanFrame(&f);
+
+		// Debug purposes
+		if (sent) {
+			Serial.println("CAN Frame sent");
+		}
+		else {
+			Serial.println("Cannot send CANframe");
+		}
+
 	}
-
-	read_ultrasonic(trigPin1, echoPin1);
-	RightFront = distance;
-	read_ultrasonic(trigPin2, echoPin2);
-	RightSide = distance;
-	read_ultrasonic(trigPin3, echoPin3);
-	RightBack = distance;
-	read_ultrasonic(trigPin4, echoPin4);
-	LeftFront = distance;
-	read_ultrasonic(trigPin5, echoPin5);
-	LeftSide = distance;
-	read_ultrasonic(trigPin6, echoPin6);
-	LeftBack = distance;
-	read_ultrasonic(trigPin7, echoPin7);
-	Front = distance;
-
-	CANFrame f;
-	dataUltra.insertData(RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front);
-	dataUltra.packCAN(&f);
-	serializer.sendCanFrame(&f);
 
 	delay(10);
 }
 
-void read_ultrasonic(int trigPin, int echoPin) {
-	digitalWrite(trigPin, LOW);
+/*
+	Triggers a single ultrasonic sensor and returns the calculated distance in cm
+*/
+int read_ultrasonic(int sig_pin) {
+	pinMode(sig_pin, OUTPUT);
+	digitalWrite(sig_pin, LOW);
 	delayMicroseconds(2);
-	digitalWrite(trigPin, HIGH);
-	delayMicroseconds(10);
-	digitalWrite(trigPin, LOW);
-	duration = pulseIn(echoPin, HIGH);
-	distance = duration * 0.0340/2;
+	// Send logic high to trigger the ultrasonic sensor
+	digitalWrite(sig_pin, HIGH);
+	delayMicroseconds(5);
+	// Turn off trigger signal
+	digitalWrite(sig_pin, LOW);
+	// Config signal pin to input
+	pinMode(sig_pin, INPUT);
+	// Read in time the sig_pin remains high
+	distance = pulseIn(sig_pin, HIGH);
+
+	distance = distance / DISTANCE_FACTOR;
+
+	return distance;
 }
 
 void CAN_ISR()

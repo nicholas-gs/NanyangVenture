@@ -24,8 +24,8 @@ public:
 	int getLeftSide();
 	int getLeftBack();
 	int getFront();
-	/*
-	void packString(char*);
-	void unpackString(char* str);*/
+	
+	void packString(char* str);
+	void unpackString(char* str);
 };
 #endif

@@ -13,8 +13,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CAN_send", "..\libraries\MC
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CAN_receive", "..\libraries\MCP_CAN_lib\examples\CAN_receive\CAN_receive.vcxproj", "{33A793D8-0A11-470D-9498-8523521D1EAC}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_speedo_UNO", "Arduino\NV11_speedo_UNO\NV11_speedo_UNO.vcxproj", "{17A4247C-69DB-4B2E-9775-C59E3A80D318}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_CANtoSerial_UNO", "Arduino\NV11_CANtoSerial_UNO\NV11_CANtoSerial_UNO.vcxproj", "{E3AF1D76-18E9-4F28-86FC-56CDF2EBCDC0}"
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "NV11DashboardGUI", "RPi\NV11DashboardGUI\NV11DashboardGUI.pyproj", "{F68B5D83-1F4D-44FB-A777-E730122266A9}"
@@ -39,17 +37,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializerV2_receiver", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ADCShuntTest", "Arduino\#TestSuites\ADCShuntTest\ADCShuntTest.vcxproj", "{C9BC5C57-E50B-4D50-8C9E-A679C4D22EF5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_ElectroClutchSync", "Arduino\NV10_ElectroClutchSync\NV10_ElectroClutchSync.vcxproj", "{6A563B5C-3EEE-4724-9078-84B54760D65A}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dboard_Button_Test", "Arduino\#TestSuites\Dboard_Button_Test\Dboard_Button_Test.vcxproj", "{DA5BEF9F-4909-4F69-AAB7-C8DDB0C23E6A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_steeringwheel_UNO", "Arduino\NV11_steeringwheel_UNO\NV11_steeringwheel_UNO.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_accessories_MEGA", "Arduino\NV11_accessories_MEGA\NV11_accessories_MEGA.vcxproj", "{4FC87812-2DE7-4D61-802E-925FA627C4C6}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_front_MEGA", "Arduino\NV10_front_MEGA\NV10_front_MEGA.vcxproj", "{71018A52-5D0D-4B0B-85A0-CA5825C21149}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_dashboard_DUE", "Arduino\NV10_dashboard_DUE\NV10_dashboard_DUE.vcxproj", "{F9DF5152-3679-41CA-8143-E100D09C8505}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_CANtoSerial_UNO", "Arduino\NV10_CANtoSerial_UNO\NV10_CANtoSerial_UNO.vcxproj", "{8DE7800C-8E97-4255-83B6-1E1013D39ECF}"
 EndProject
@@ -77,55 +67,45 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeRTOS_AVR-2015.11.12", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FreeRTOS_ARM-2015.11.12", "..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems", "{10D895AA-B828-4BD4-B929-83CFEA359CC3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_back_MEGA", "Arduino\NV10_back_MEGA\NV10_back_MEGA.vcxproj", "{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CANSerializer-1.0.0", "..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems", "{0B06F79B-FECF-4D65-A493-1DD47D2957E2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_autonomous_MEGA", "NV11_autonomous_MEGA\NV11_autonomous_MEGA.vcxproj", "{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_back_MEGA", "Arduino\NV10_back_MEGA\NV10_back_MEGA.vcxproj", "{E66B72DA-3EA5-4B29-86C8-78440DC203D2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_dashboard_DUE", "Arduino\NV10_dashboard_DUE\NV10_dashboard_DUE.vcxproj", "{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_ElectroClutchSync", "Arduino\NV10_ElectroClutchSync\NV10_ElectroClutchSync.vcxproj", "{3682802F-ABFF-4EA3-81BE-61E9D385F257}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV10_front_MEGA", "Arduino\NV10_front_MEGA\NV10_front_MEGA.vcxproj", "{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_accessories_MEGA", "Arduino\NV11_accessories_MEGA\NV11_accessories_MEGA.vcxproj", "{92415306-7DF9-4D7D-9354-AE816887E67E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_speedo_UNO", "Arduino\NV11_speedo_UNO\NV11_speedo_UNO.vcxproj", "{74794599-4C1C-41DE-ADFC-2DD1604F4369}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{0b06f79b-fecf-4d65-a493-1dd47d2957e2}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{0e4ad353-cc10-41b1-9e28-ebd12ba3700a}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{10d895aa-b828-4bd4-b929-83cfea359cc3}*SharedItemsImports = 9
-		Arduino\libraries\Speedometer\Speedometer.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{17a4247c-69db-4b2e-9775-c59e3a80d318}*SharedItemsImports = 4
 		..\libraries\MCP_CAN_lib\MCP_CAN_lib.vcxitems*{3e3daf3b-9bce-4ba7-aac5-b5be3b96b653}*SharedItemsImports = 4
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{3e3daf3b-9bce-4ba7-aac5-b5be3b96b653}*SharedItemsImports = 4
 		..\libraries\MCP_CAN_lib\MCP_CAN_lib.vcxitems*{3f8b2017-8e31-43fb-bc4c-a95680ca7683}*SharedItemsImports = 4
 		Arduino\libraries\CANSerializer\CANSerializer.vcxitems*{3f8b2017-8e31-43fb-bc4c-a95680ca7683}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{413b1256-cf59-4848-9488-94e77f70c4cb}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4a33670d-d01c-43da-9d00-c0dd330de92e}*SharedItemsImports = 9
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\Rosserial_Arduino_Library\Rosserial_Arduino_Library-0.7.9.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems*{4fc87812-2de7-4d61-802e-925fa627c4c6}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems*{5c152c9f-9ade-46a4-81bb-65a5dc54ac67}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{5d22f0af-f54b-447b-916a-ebcffd39159e}*SharedItemsImports = 9
-		Arduino\libraries\RelayModule\RelayModule.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
-		Arduino\libraries\Speedometer\Speedometer.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{6a563b5c-3eee-4724-9078-84b54760d65a}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{71018a52-5d0d-4b0b-85a0-ca5825c21149}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\MemoryFree\MemoryFree-0.0.0.vcxitems*{71018a52-5d0d-4b0b-85a0-ca5825c21149}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_AVR\FreeRTOS_AVR-2015.11.12.vcxitems*{7429ba55-5a04-434e-a36c-9832292b40ea}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{924b5ac3-01eb-4ea4-81c9-85522f727691}*SharedItemsImports = 9
 		Arduino\libraries\RelayModule\RelayModule.vcxitems*{a57a3d44-d0d0-4d27-aac1-ba3f7124ecc6}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_GFX_Library\Adafruit_GFX_Library-1.2.3.vcxitems*{aa3d9f04-f65a-44b8-88ad-be73ab59570f}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel-1.1.3.vcxitems*{b00bcbbb-e6e5-4eac-b2b9-4bc69c9221d6}*SharedItemsImports = 9
-		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15-1.0.0.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_NeoPixel\Adafruit_NeoPixel-1.1.3.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\MCP_CAN_lib\MCP_CAN_lib-0.0.0.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\SdFat\SdFat-1.0.16.vcxitems*{bed4b8d9-4e60-4456-b6ea-3afb7103dffe}*SharedItemsImports = 4
-		..\..\ide\hardware\arduino\avr\libraries\Wire\Wire.vcxitems*{c9bc5c57-e50b-4d50-8c9e-a679c4d22ef5}*SharedItemsImports = 4
 		..\libraries\Adafruit_ADS1X15\Adafruit_ADS1X15.vcxitems*{c9bc5c57-e50b-4d50-8c9e-a679c4d22ef5}*SharedItemsImports = 4
+		..\..\ide\hardware\arduino\avr\libraries\Wire\Wire.vcxitems*{c9bc5c57-e50b-4d50-8c9e-a679c4d22ef5}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\RelayModule\RelayModule-1.0.0.vcxitems*{cc779671-7cf0-4073-9dec-f8c11ca19800}*SharedItemsImports = 9
 		Arduino\libraries\Speedometer\Speedometer.vcxitems*{cddcd64e-35b1-4c6b-b6fe-187d977dccc4}*SharedItemsImports = 9
 		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS\FreeRTOS-10.0.0-1.vcxitems*{e104d7c3-053b-4a4c-8b07-16be5b1b6007}*SharedItemsImports = 9
-		..\..\Users\laksh\Documents\Arduino\libraries\Adafruit_GFX_Library\Adafruit_GFX_Library-1.2.3.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\FreeRTOS_ARM\FreeRTOS_ARM-2015.11.12.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
-		..\..\Users\laksh\Documents\Arduino\libraries\ILI9488\ILI9488-1.0.2.vcxitems*{f9df5152-3679-41ca-8143-e100d09c8505}*SharedItemsImports = 4
 		..\..\Users\laksh\Documents\Arduino\libraries\MemoryFree\MemoryFree-0.0.0.vcxitems*{fbb1f15b-bfa4-4fa4-ad19-32754ff5f57e}*SharedItemsImports = 9
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,14 +141,6 @@ Global
 		{33A793D8-0A11-470D-9498-8523521D1EAC}.Release|x64.ActiveCfg = Release|Win32
 		{33A793D8-0A11-470D-9498-8523521D1EAC}.Release|x86.ActiveCfg = Release|Win32
 		{33A793D8-0A11-470D-9498-8523521D1EAC}.Release|x86.Build.0 = Release|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Debug|x64.ActiveCfg = Debug|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Debug|x86.ActiveCfg = Debug|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Debug|x86.Build.0 = Debug|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Release|Any CPU.ActiveCfg = Release|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Release|x64.ActiveCfg = Release|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Release|x86.ActiveCfg = Release|Win32
-		{17A4247C-69DB-4B2E-9775-C59E3A80D318}.Release|x86.Build.0 = Release|Win32
 		{E3AF1D76-18E9-4F28-86FC-56CDF2EBCDC0}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{E3AF1D76-18E9-4F28-86FC-56CDF2EBCDC0}.Debug|x64.ActiveCfg = Debug|Win32
 		{E3AF1D76-18E9-4F28-86FC-56CDF2EBCDC0}.Debug|x86.ActiveCfg = Debug|Win32
@@ -247,14 +219,6 @@ Global
 		{C9BC5C57-E50B-4D50-8C9E-A679C4D22EF5}.Release|x64.ActiveCfg = Release|Win32
 		{C9BC5C57-E50B-4D50-8C9E-A679C4D22EF5}.Release|x86.ActiveCfg = Release|Win32
 		{C9BC5C57-E50B-4D50-8C9E-A679C4D22EF5}.Release|x86.Build.0 = Release|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Debug|x64.ActiveCfg = Debug|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Debug|x86.ActiveCfg = Debug|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Debug|x86.Build.0 = Debug|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Release|Any CPU.ActiveCfg = Release|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Release|x64.ActiveCfg = Release|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Release|x86.ActiveCfg = Release|Win32
-		{6A563B5C-3EEE-4724-9078-84B54760D65A}.Release|x86.Build.0 = Release|Win32
 		{DA5BEF9F-4909-4F69-AAB7-C8DDB0C23E6A}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{DA5BEF9F-4909-4F69-AAB7-C8DDB0C23E6A}.Debug|x64.ActiveCfg = Debug|Win32
 		{DA5BEF9F-4909-4F69-AAB7-C8DDB0C23E6A}.Debug|x86.ActiveCfg = Debug|Win32
@@ -271,30 +235,6 @@ Global
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x64.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.ActiveCfg = Release|Win32
 		{C5F80730-F44F-4478-BDAE-6634EFC2CA88}.Release|x86.Build.0 = Release|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Debug|x64.ActiveCfg = Debug|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Debug|x86.ActiveCfg = Debug|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Debug|x86.Build.0 = Debug|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Release|Any CPU.ActiveCfg = Release|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Release|x64.ActiveCfg = Release|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Release|x86.ActiveCfg = Release|Win32
-		{4FC87812-2DE7-4D61-802E-925FA627C4C6}.Release|x86.Build.0 = Release|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Debug|x64.ActiveCfg = Debug|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Debug|x86.ActiveCfg = Debug|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Debug|x86.Build.0 = Debug|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Release|Any CPU.ActiveCfg = Release|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Release|x64.ActiveCfg = Release|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Release|x86.ActiveCfg = Release|Win32
-		{71018A52-5D0D-4B0B-85A0-CA5825C21149}.Release|x86.Build.0 = Release|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Debug|x64.ActiveCfg = Debug|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Debug|x86.ActiveCfg = Debug|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Debug|x86.Build.0 = Debug|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Release|Any CPU.ActiveCfg = Release|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Release|x64.ActiveCfg = Release|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Release|x86.ActiveCfg = Release|Win32
-		{F9DF5152-3679-41CA-8143-E100D09C8505}.Release|x86.Build.0 = Release|Win32
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Debug|x64.ActiveCfg = Debug|Win32
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Debug|x86.ActiveCfg = Debug|Win32
@@ -303,14 +243,6 @@ Global
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Release|x64.ActiveCfg = Release|Win32
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Release|x86.ActiveCfg = Release|Win32
 		{8DE7800C-8E97-4255-83B6-1E1013D39ECF}.Release|x86.Build.0 = Release|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Debug|Any CPU.ActiveCfg = Debug|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Debug|x64.ActiveCfg = Debug|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Debug|x86.ActiveCfg = Debug|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Debug|x86.Build.0 = Debug|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|Any CPU.ActiveCfg = Release|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x64.ActiveCfg = Release|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x86.ActiveCfg = Release|Win32
-		{BED4B8D9-4E60-4456-B6EA-3AFB7103DFFE}.Release|x86.Build.0 = Release|Win32
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|x64.ActiveCfg = Debug|Win32
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Debug|x86.ActiveCfg = Debug|Win32
@@ -319,6 +251,54 @@ Global
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x64.ActiveCfg = Release|Win32
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x86.ActiveCfg = Release|Win32
 		{0E4AD353-CC10-41B1-9E28-EBD12BA3700A}.Release|x86.Build.0 = Release|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Debug|x64.ActiveCfg = Debug|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Debug|x86.ActiveCfg = Debug|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Debug|x86.Build.0 = Debug|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Release|x64.ActiveCfg = Release|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Release|x86.ActiveCfg = Release|Win32
+		{E66B72DA-3EA5-4B29-86C8-78440DC203D2}.Release|x86.Build.0 = Release|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Debug|x64.ActiveCfg = Debug|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Debug|x86.ActiveCfg = Debug|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Debug|x86.Build.0 = Debug|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Release|Any CPU.ActiveCfg = Release|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Release|x64.ActiveCfg = Release|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Release|x86.ActiveCfg = Release|Win32
+		{24E058C9-AA4B-4623-91CC-CC6EC9451CC4}.Release|x86.Build.0 = Release|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Debug|x64.ActiveCfg = Debug|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Debug|x86.ActiveCfg = Debug|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Debug|x86.Build.0 = Debug|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Release|Any CPU.ActiveCfg = Release|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Release|x64.ActiveCfg = Release|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Release|x86.ActiveCfg = Release|Win32
+		{3682802F-ABFF-4EA3-81BE-61E9D385F257}.Release|x86.Build.0 = Release|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Debug|x64.ActiveCfg = Debug|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Debug|x86.ActiveCfg = Debug|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Debug|x86.Build.0 = Debug|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Release|Any CPU.ActiveCfg = Release|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Release|x64.ActiveCfg = Release|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Release|x86.ActiveCfg = Release|Win32
+		{D35EF34B-7B08-4D80-B7F5-1DDBAD9D7C92}.Release|x86.Build.0 = Release|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Debug|x64.ActiveCfg = Debug|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Debug|x86.ActiveCfg = Debug|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Debug|x86.Build.0 = Debug|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Release|x64.ActiveCfg = Release|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Release|x86.ActiveCfg = Release|Win32
+		{92415306-7DF9-4D7D-9354-AE816887E67E}.Release|x86.Build.0 = Release|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Debug|x64.ActiveCfg = Debug|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Debug|x86.ActiveCfg = Debug|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Debug|x86.Build.0 = Debug|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Release|Any CPU.ActiveCfg = Release|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Release|x64.ActiveCfg = Release|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Release|x86.ActiveCfg = Release|Win32
+		{74794599-4C1C-41DE-ADFC-2DD1604F4369}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
