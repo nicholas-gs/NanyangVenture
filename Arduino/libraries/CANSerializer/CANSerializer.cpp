@@ -7,6 +7,8 @@
 
 #include "CANSerializer.h"
 
+unsigned char rxBuf[8];
+
 bool CANSerializer::init(uint8_t cs, uint16_t kbps)
 {
 	//cs = Chip Select

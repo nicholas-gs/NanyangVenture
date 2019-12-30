@@ -71,6 +71,7 @@ protected:
 		char String[8];
 		byte Byte[8];
 		uint8_t Int8[8];
+		uint8_t LargerInt8[32];
 		uint16_t UInt[4];
 		uint32_t Long[2];
 		float Float[2];

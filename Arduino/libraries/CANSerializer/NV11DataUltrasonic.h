@@ -5,25 +5,25 @@
 class NV11DataUltrasonic :public DataPoint
 {
 protected:
-	int rightFront = data.Int8[0];
-	int rightSide = data.Int8[1];
-	int rightBack = data.Int8[2];
-	int leftFront = data.Int8[3];
-	int leftSide = data.Int8[4];
-	int leftBack = data.Int8[5];
-	int front = data.Int8[6];
+	uint8_t rightFront = data.Int8[0];
+	uint8_t rightSide = data.Int8[1];
+	uint8_t rightBack = data.Int8[2];
+	uint8_t leftFront = data.Int8[3];
+	uint8_t leftSide = data.Int8[4];
+	uint8_t leftBack = data.Int8[5];
+	uint8_t front = data.Int8[6];
 
 public:
 	NV11DataUltrasonic();
 	// implement parent class
-	void insertData(int right1, int right2, int right3, int left1, int left2, int left3, int front);
-	int getRightFront();
-	int getRightSide();
-	int getRightBack();
-	int getLeftFront();
-	int getLeftSide();
-	int getLeftBack();
-	int getFront();
+	void insertData(uint16_t right1, uint16_t right2, uint16_t right3, uint16_t left1, uint16_t left2, uint16_t left3, uint16_t front);
+	uint16_t getRightFront();
+	uint16_t getRightSide();
+	uint16_t getRightBack();
+	uint16_t getLeftFront();
+	uint16_t getLeftSide();
+	uint16_t getLeftBack();
+	uint16_t getFront();
 	
 	void packString(char* str);
 	void unpackString(char* str);
