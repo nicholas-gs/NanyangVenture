@@ -23,6 +23,22 @@ void NV11DataUltrasonic::insertData(uint16_t right1, uint16_t right2, uint16_t r
 	this->front = (front/2);
 }
 
+/*
+	In the teensy, we need to convert the CAN frame into a NV11DataUltrasonic object. But the values in the CAN frame are already
+	divided by 2. So we assign them to the class attributes as is.
+*/
+void NV11DataUltrasonic::insertDataTeensy(uint8_t right1, uint8_t right2, uint8_t right3, uint8_t left1,
+	uint8_t left2, uint8_t left3, uint8_t front) {
+	timeStamp = millis();
+	this->rightFront = right1;
+	this->rightSide = right2 ;
+	this->rightBack = right3;
+	this->leftFront = left1 ;
+	this->leftSide = left2 ;
+	this->leftBack = left3 ;
+	this->front = front ;
+}
+
 uint16_t NV11DataUltrasonic::getRightFront()
 {
 	return (rightFront*2);
