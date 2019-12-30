@@ -38,7 +38,7 @@ const int sigPin5 = 10;
 const int sigPin6 = 12;
 const int sigPin7 = 24;
 
-int distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
+uint16_t distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
 
 HardwareSerial& debugSerialPort = Serial;
 char dataBMSString[100];
@@ -139,7 +139,6 @@ void loop() {
 		else {
 			Serial.println("Cannot send CANframe");
 		}
-
 	}
 
 	delay(10);
@@ -148,7 +147,7 @@ void loop() {
 /*
 	Triggers a single ultrasonic sensor and returns the calculated distance in cm
 */
-int read_ultrasonic(int sig_pin) {
+uint16_t read_ultrasonic(int sig_pin) {
 	pinMode(sig_pin, OUTPUT);
 	digitalWrite(sig_pin, LOW);
 	delayMicroseconds(2);

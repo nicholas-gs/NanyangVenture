@@ -16,6 +16,7 @@
 #include <ackermann_msgs/AckermannDrive.h>
 // CAN Bus
 #include <FlexCAN.h>
+#include <TeensyCANHandler.h>
 
 // CONFIGURATION PARAMETERS
 // Defines if ROS is being used or remote is being used
@@ -186,8 +187,10 @@ float normalise(float);
 
 float encoderCalc();
 
-// CAN Bus handler
+// CAN Bus handler object
 TeensyCANHandler canHandler;
+// Ultrasonic sensor readings
+int RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
 
 void setup()
 {
@@ -551,3 +554,19 @@ void falling4()
 }
 
 #endif
+
+// Nicholas -- Not yet called anywhere
+void getUltrasonicDistance()
+{
+  if (canHandler.hasData())
+  {
+    NV11DataUltrasonic dataObj = canHandler.getData();
+    RightFront = dataObj.getRightFront();
+    RightSide = dataObj.getRightSide();
+    RightBack = dataObj.getRightBack();
+    LeftFront = dataObj.getLeftFront();
+    LeftSide = dataObj.getLeftSide();
+    LeftBack = dataObj.getLeftBack();
+    Front = dataObj.getFront();
+  }
+}
