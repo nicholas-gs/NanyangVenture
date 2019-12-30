@@ -4,7 +4,6 @@
  Author:	MX
 */
 
-#include <SPI.h>
 #include <ros.h>
 #include <SdFat.h>
 #include <CANSerializer.h>
