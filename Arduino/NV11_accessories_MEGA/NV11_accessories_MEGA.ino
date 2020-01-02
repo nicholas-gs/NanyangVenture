@@ -30,13 +30,13 @@ unsigned long sigNextProc = 0;
 const unsigned long sigInterval = 500; // 500ms delay between each signal light flash
 
 //Pins for ultrasonic sensors
-const int sigPin1 = 2;
-const int sigPin2 = 4;
-const int sigPin3 = 6;
-const int sigPin4 = 8;
-const int sigPin5 = 10;
-const int sigPin6 = 12;
-const int sigPin7 = 24;
+const uint8_t sigPin1 = 2;
+const uint8_t sigPin2 = 4;
+const uint8_t sigPin3 = 6;
+const uint8_t sigPin4 = 8;
+const uint8_t sigPin5 = 10;
+const uint8_t sigPin6 = 12;
+const uint8_t sigPin7 = 24;
 
 uint16_t distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
 
@@ -147,7 +147,7 @@ void loop() {
 /*
 	Triggers a single ultrasonic sensor and returns the calculated distance in cm
 */
-uint16_t read_ultrasonic(int sig_pin) {
+uint16_t read_ultrasonic(uint8_t sig_pin) {
 	pinMode(sig_pin, OUTPUT);
 	digitalWrite(sig_pin, LOW);
 	delayMicroseconds(2);
