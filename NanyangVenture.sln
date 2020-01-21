@@ -85,6 +85,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_speedo_UNO", "Arduino\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NV11_Ultrasonic_UNO", "Arduino\NV11_Ultrasonic_UNO\NV11_Ultrasonic_UNO.vcxproj", "{DE2764AD-8EF8-44D1-9FC6-A63BA3BD7A8E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sender_Node", "Arduino_Test_Sketches\CAN_Ultrasonic\Sender_Node\Sender_Node.vcxproj", "{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\..\Users\laksh\Documents\Arduino\libraries\CANSerializer\CANSerializer-1.0.0.vcxitems*{0b06f79b-fecf-4d65-a493-1dd47d2957e2}*SharedItemsImports = 9
@@ -309,6 +311,14 @@ Global
 		{DE2764AD-8EF8-44D1-9FC6-A63BA3BD7A8E}.Release|x64.ActiveCfg = Release|Win32
 		{DE2764AD-8EF8-44D1-9FC6-A63BA3BD7A8E}.Release|x86.ActiveCfg = Release|Win32
 		{DE2764AD-8EF8-44D1-9FC6-A63BA3BD7A8E}.Release|x86.Build.0 = Release|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Debug|x64.ActiveCfg = Debug|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Debug|x86.ActiveCfg = Debug|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Debug|x86.Build.0 = Debug|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Release|Any CPU.ActiveCfg = Release|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Release|x64.ActiveCfg = Release|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Release|x86.ActiveCfg = Release|Win32
+		{18B2C8C6-0A42-48E7-9F48-453BD7344B5B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

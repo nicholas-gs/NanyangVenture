@@ -1,6 +1,6 @@
 #include "NV11DataUltrasonic.h"
 
-NV11DataUltrasonic::NV11DataUltrasonic() : DataPoint("US", 0x0A, 32)
+NV11DataUltrasonic::NV11DataUltrasonic() : DataPoint("US", 0x0A, 8)
 {
 	debug(F("DataPoint US:\t0x0A\t32"));
 }
@@ -64,7 +64,7 @@ uint16_t NV11DataUltrasonic::getLeftSide()
 	return (leftSide*2);
 }
 
-uint8_t NV11DataUltrasonic::getLeftBack()
+uint16_t NV11DataUltrasonic::getLeftBack()
 {
 	return (leftBack*2);
 }

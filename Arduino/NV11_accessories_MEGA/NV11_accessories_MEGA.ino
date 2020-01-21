@@ -53,7 +53,6 @@ void setup() {
 
 	runninglightRelay.activate();
 
-	// Maybe wiring is wrong for CAN?
 	serializer.init(CAN_SPI_CS);
 	pinMode(CAN_INTERRUPT, INPUT_PULLUP);
 	attachInterrupt(digitalPinToInterrupt(CAN_INTERRUPT), CAN_ISR, FALLING);
