@@ -9,26 +9,32 @@
 
 // For calculating distance in cm from signal pin for ultrasonic sensor
 #define DISTANCE_FACTOR 58.138
-#define CAN_SPI_CS 10
+#define CAN_SPI_CS 9
 
 CANSerializer serializer;
 NV11DataUltrasonic dataUltra;
 
 //Pins for ultrasonic sensors
 const uint8_t sigPin1 = 2;
-const uint8_t sigPin2 = 4;
-const uint8_t sigPin3 = 6;
-const uint8_t sigPin4 = 8;
-const uint8_t sigPin5 = 10;
-const uint8_t sigPin6 = 12;
-const uint8_t sigPin7 = 24;
+const uint8_t sigPin2 = 3;
+const uint8_t sigPin3 = 4;
+const uint8_t sigPin4 = 5;
+const uint8_t sigPin5 = 6;
+const uint8_t sigPin6 = 7;
+const uint8_t sigPin7 = 8;
+
+/* Pins for the MCP2515
+	1. MOSI - 11
+	2. MISO - 12 
+	3. SCK - 13
+*/
 
 // Calculated ultrasonic distances
 uint16_t distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-	serializer.init(CAN_SPI_CS);
+	serializer.init(CAN_SPI_CS); // WRONG PIN, should not be 10
 	ultrasonicInit();
 	Serial.begin(9600);
 	delay(50);
