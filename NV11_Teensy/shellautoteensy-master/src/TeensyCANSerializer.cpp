@@ -35,6 +35,14 @@ bool TeensyCANSerializer::init(NV11DataUltrasonic *ultrasonicData, NV11DataSpeed
 }
 
 /*
+    Assign the function pointer parameter to the function pointer in receiver object, from the TeensyCANSerializer class
+*/
+void TeensyCANSerializer::attachISR(void (*CAN_ISR)())
+{
+    TeensyCANSerializer::receiverObj.attachISR(CAN_ISR);
+}
+
+/*
     Send a CAN_message_t frame through the CAN bus. Returns true if sending was successful, false otherwise
 */
 bool TeensyCANSerializer::sendData(CAN_message_t *CANMessage)
@@ -53,8 +61,16 @@ void ReceiverClass::init(NV11DataUltrasonic *usData, NV11DataSpeedo *spData)
 }
 
 /*
+    Assign the function pointer parameter to the function pointer in receiver object, from the ReceiverClass class
+*/
+void ReceiverClass::attachISR(void (*CAN_ISR)())
+{
+    ReceiverClass::canISR = CAN_ISR;
+}
+
+/*
 	Function that gets called anytime a new message comes in.
-    Unpacks the incoing CAN_message_t into the appropriate object depending on the CAN ID.
+    Unpacks the incoming CAN_message_t into the appropriate object depending on the CAN ID.
 */
 bool ReceiverClass::frameHandler(CAN_message_t &frame, int mailbox, uint8_t controller)
 {
@@ -68,5 +84,10 @@ bool ReceiverClass::frameHandler(CAN_message_t &frame, int mailbox, uint8_t cont
         float speed = -1;
         memcpy(&speed, frame.buf, 4);
         speedoData->insertData(speed);
+    }
+    // Call function passed to class from the main.cpp
+    if (ReceiverClass::canISR != NULL)
+    {
+        ReceiverClass::canISR();
     }
 }
