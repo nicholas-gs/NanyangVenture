@@ -15,8 +15,7 @@
 #include <ackermann_msgs/AckermannDriveStamped.h>
 #include <ackermann_msgs/AckermannDrive.h>
 // CAN Bus
-#include <FlexCAN.h>
-#include <TeensyCANHandler.h>
+#include <TeensyCANSerializer.h>
 
 // CONFIGURATION PARAMETERS
 // Defines if ROS is being used or remote is being used
@@ -25,8 +24,8 @@
 // #define STEPMODE
 
 // CAN Bus configuration
-#define CANTX 2
-#define CANRX 35
+// #define CANTX 2
+// #define CANRX 35
 
 // Interrupts configuration
 #define CHANNEL1 36
@@ -188,9 +187,11 @@ float normalise(float);
 float encoderCalc();
 
 // CAN Bus handler object
-TeensyCANHandler canHandler;
-// Ultrasonic sensor readings
-int RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
+TeensyCANSerializer tCANSerializer;
+
+// CAN bus data objects
+NV11DataUltrasonic dataUltrasonic;
+NV11DataSpeedo dataSpeedo;
 
 void setup()
 {
@@ -213,14 +214,13 @@ void setup()
   pinMode(ACCELPPIN, OUTPUT);
   steering.setCurrentPosition(steering.currentPosition());
   // Init for CAN bus
-  Can0.begin(1000000);
-  pinMode(CANTX, OUTPUT);
-  pinMode(CANRX, OUTPUT);
-  digitalWrite(CANTX, HIGH);
-  digitalWrite(CANRX, HIGH);
+  tCANSerializer.init(&dataUltrasonic, &dataSpeedo);
 
-  Can0.attachObj(&canHandler);
-  canHandler.attachGeneralHandler();
+  // Don't know if need to do this
+  // pinMode(CANTX, OUTPUT);
+  // pinMode(CANRX, OUTPUT);
+  // digitalWrite(CANTX, HIGH);
+  // digitalWrite(CANRX, HIGH);
 
 #ifdef ROSMODE
   nh.initNode();
@@ -554,19 +554,3 @@ void falling4()
 }
 
 #endif
-
-// Nicholas -- Not yet called anywhere
-void getUltrasonicDistance()
-{
-  if (canHandler.hasData())
-  {
-    NV11DataUltrasonic dataObj = canHandler.getData();
-    RightFront = dataObj.getRightFront();
-    RightSide = dataObj.getRightSide();
-    RightBack = dataObj.getRightBack();
-    LeftFront = dataObj.getLeftFront();
-    LeftSide = dataObj.getLeftSide();
-    LeftBack = dataObj.getLeftBack();
-    Front = dataObj.getFront();
-  }
-}
