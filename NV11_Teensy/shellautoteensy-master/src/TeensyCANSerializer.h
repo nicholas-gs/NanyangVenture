@@ -29,9 +29,11 @@ class ReceiverClass : public CANListener
 private:
     NV11DataUltrasonic *ultrasonicData;
     NV11DataSpeedo *speedoData;
+    void (*canISR)() = NULL; // Function pointer to function take gets called in frameHandler(...)
 
 public:
     void init(NV11DataUltrasonic *usData, NV11DataSpeedo *spData);
+    void attachISR(void (*CAN_ISR)());
     bool frameHandler(CAN_message_t &frame, int mailbox, uint8_t controller);
 };
 
@@ -42,6 +44,7 @@ private:
 
 public:
     bool init(NV11DataUltrasonic *ultrasonicData, NV11DataSpeedo *speedoData, uint32_t baudRate = CAN_BUS_1000KBPS);
+    void attachISR(void (*CAN_ISR)());
     bool sendData(CAN_message_t *CANMessage);
 };
 
