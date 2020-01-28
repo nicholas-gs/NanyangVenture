@@ -9,11 +9,6 @@
 #include <AccelStepper.h>
 #include <SPI.h>
 #include <AS5048A.h>
-//ROS Libraries
-#include <ros.h>
-#include <std_msgs/Float32.h>
-#include <ackermann_msgs/AckermannDriveStamped.h>
-#include <ackermann_msgs/AckermannDrive.h>
 // CAN Bus
 #include <TeensyCANSerializer.h>
 
@@ -77,6 +72,9 @@ long stepSLast = 0;
 #ifdef ROSMODE
 #include <ros.h>
 #include <std_msgs/Float32.h>
+#include <ackermann_msgs/AckermannDriveStamped.h>
+#include <ackermann_msgs/AckermannDrive.h>
+ros::init();
 ros::NodeHandle nh;
 
 void driveMessage(const ackermann_msgs::AckermannDriveStamped &drive_msg)
@@ -89,7 +87,29 @@ void driveMessage(const ackermann_msgs::AckermannDriveStamped &drive_msg)
 
 ackermann_msgs::AckermannDrive Drive;
 ros::Subscriber<ackermann_msgs::AckermannDriveStamped> sub("arduino_cmd_topic", &driveMessage);
+ros::Publisher speedo_pub = n.advertise<std_msgs::Float32>("speedo", 200);
+
+// ISR to parse speedo data and send to ROS
+void publishSpeedoData(float speed)
+{
+  std_msgs::Float32 speed_msg;
+  speed_msg.data = speed;
+  speedo_pub.publish(speed_msg);
+}
 #endif
+
+// ISR to define ROSMODE if autonomous button pressed
+void toggleAutonomous(bool toggle)
+{
+  if (toggle == true)
+  {
+#define ROSMODE true
+  }
+  else
+  {
+#undef ROSMODE
+  }
+}
 
 #ifndef STEPMODE
 #include <PID_v1.h>
