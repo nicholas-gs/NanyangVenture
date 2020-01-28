@@ -89,6 +89,7 @@ ackermann_msgs::AckermannDrive Drive;
 ros::Subscriber<ackermann_msgs::AckermannDriveStamped> sub("arduino_cmd_topic", &driveMessage);
 ros::Publisher speedo_pub = n.advertise<std_msgs::Float32>("speedo", 200);
 
+// ISR to parse speedo data and send to ROS
 void publishSpeedoData(float speed)
 {
   std_msgs::Float32 speed_msg;
@@ -96,6 +97,19 @@ void publishSpeedoData(float speed)
   speedo_pub.publish(speed_msg);
 }
 #endif
+
+// ISR to define ROSMODE if autonomous button pressed
+void toggleAutonomous(bool toggle)
+{
+  if (toggle == true)
+  {
+#define ROSMODE true
+  }
+  else
+  {
+#undef ROSMODE
+  }
+}
 
 #ifndef STEPMODE
 #include <PID_v1.h>
