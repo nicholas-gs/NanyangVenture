@@ -10,7 +10,7 @@
 #include <NV11DataUltrasonic.h>
 #include <NV11DataSpeedo.h>
 
-#define CAN_CS 9
+#define CAN_CS 10
 
 CANSerializer canSerializer;
 NV11DataUltrasonic dataUltra;
@@ -27,43 +27,34 @@ void setup() {
 	else {
 		Serial.println("Error setting up CAN!");
 	}
-
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() {
- 
+
 	CANFrame frame;
-	dataUltra.insertData(400, 400, 400, 400, 400, 400, 400);
+	dataUltra.insertData(50, 150, 200, 250, 300, 350, 400);
 	dataUltra.packCAN(&frame);
 	bool sent = canSerializer.sendCanFrame(&frame);
 	if (sent) {
-    Serial.println("CAN frame sent");
+		Serial.println("dataUltra CAN frame sent");
 	}
 	else {
-    Serial.println("Cannot send CAN frame");
+		Serial.println("dataUltra CAN frame cannot be sent");
 	}
 
-/*
-  
-	CANFrame frame;
-	dataSpeedo.insertData(23.2);
-	dataSpeedo.packCAN(&frame);
-	bool sent = canSerializer.sendCanFrame(&frame);
-  Serial.println("Tried to send");
-	if (sent) {
-		Serial.println("CAN frame sent");
+	delay(250);
+
+	CANFrame frame2;
+	dataSpeedo.insertData(27.9);
+	dataSpeedo.packCAN(&frame2);
+	bool sent2 = canSerializer.sendCanFrame(&frame2);
+	if (sent2) {
+		Serial.println("dataSpeedo CAN frame sent");
 	}
 	else {
-		Serial.println("Cannot send CAN frame");
+		Serial.println("dataSpeedo CAN frame cannot be sent");
 	}
- */
- delay(500);
-} 
 
-
-// Init the pins for the ultrasonic sensors
-
-void initUltrasonic() {
-
+	delay(250);
 }

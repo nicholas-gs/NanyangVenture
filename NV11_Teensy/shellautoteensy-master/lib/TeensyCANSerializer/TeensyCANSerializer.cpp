@@ -90,4 +90,6 @@ bool ReceiverClass::frameHandler(CAN_message_t &frame, int mailbox, uint8_t cont
     {
         ReceiverClass::canISR();
     }
+
+	return true;
 }
