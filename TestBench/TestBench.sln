@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino_Sender_Node", "Ardu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Teensy_CAN_Node", "Teensy_CAN_Node\Teensy_CAN_Node.vcxproj", "{449E9DBA-FB0B-4395-8985-BE4CF27AF7AC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jetson_CAN_Node", "Jetson_CAN_Node\Jetson_CAN_Node.vcxproj", "{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +23,10 @@ Global
 		{449E9DBA-FB0B-4395-8985-BE4CF27AF7AC}.Debug|x86.Build.0 = Debug|Win32
 		{449E9DBA-FB0B-4395-8985-BE4CF27AF7AC}.Release|x86.ActiveCfg = Release|Win32
 		{449E9DBA-FB0B-4395-8985-BE4CF27AF7AC}.Release|x86.Build.0 = Release|Win32
+		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Debug|x86.ActiveCfg = Debug|Win32
+		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Debug|x86.Build.0 = Debug|Win32
+		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Release|x86.ActiveCfg = Release|Win32
+		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
