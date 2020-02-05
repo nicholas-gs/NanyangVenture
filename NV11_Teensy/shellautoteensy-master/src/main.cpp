@@ -14,7 +14,7 @@
 
 // CONFIGURATION PARAMETERS
 // Defines if ROS is being used or remote is being used
-// #define ROSMODE
+#define ROSMODE
 // Defines if control is via position (steps) or via velocity
 // #define STEPMODE
 
@@ -77,44 +77,44 @@ long stepSLast = 0;
 ros::init();
 ros::NodeHandle nh;
 
-void driveMessage(const ackermann_msgs::AckermannDriveStamped &drive_msg)
+// For testing purpose
+ackermann_msgs::AckermannDrive drive_msg;
+ros::Publisher pub("teensy_data", &drive_msg);
+
+void accelMessage(const std_msgs::Float32 &accel_msg)
 {
-  Drive = drive_msg.drive;
-  sensorValueA = Drive.acceleration.data;
-  sensorValueB = Drive.jerk.data;
-  sensorValueS = Drive.steering_angle.data;
+  sensorValueA = (long)accel_msg.data;
+  // Testing
+  drive_msg.acceleration = accel_msg.data;
+  pub.publish(&drive_msg);
 }
 
-ackermann_msgs::AckermannDrive Drive;
-ros::Subscriber<ackermann_msgs::AckermannDriveStamped> sub("arduino_cmd_topic", &driveMessage);
-ros::Publisher speedo_pub = n.advertise<std_msgs::Float32>("speedo", 200);
-
-// ISR to parse speedo data and send to ROS
-void publishSpeedoData(float speed)
+void jerkMessage(const std_msgs::Float32 &jerk_msg)
 {
-  std_msgs::Float32 speed_msg;
-  speed_msg.data = speed;
-  speedo_pub.publish(speed_msg);
+  sensorValueA = (long)jerk_msg.data;
+  // Testing
+  drive_msg.jerk = jerk_msg.data;
+  pub.publish(&drive_msg);
 }
+
+void steeringMessage(const std_msgs::Float32 &steering_msg)
+{
+  sensorValueA = (long)steering_msg.data;
+  // Testing
+  drive_msg.steering_angle = steering_msg.data;
+  pub.publish(&drive_msg);
+}
+
+ros::Subscriber<std_msgs::Float32> accelSub("nv11/acceleration", &accelMessage);
+ros::Subscriber<std_msgs::Float32> jerkSub("nv11/jerk", &jerkMessage);
+ros::Subscriber<std_msgs::Float32> steeringSub("nv11/steering_angle", &steeringMessage);
 #endif
-
-// ISR to define ROSMODE if autonomous button pressed
-void toggleAutonomous(bool toggle)
-{
-  if (toggle == true)
-  {
-#define ROSMODE true
-  }
-  else
-  {
-#undef ROSMODE
-  }
-}
 
 #ifndef STEPMODE
 #include <PID_v1.h>
 //Define Variables we'll be connecting to
-double Setpoint, Input, Output;
+double Setpoint,
+    Input, Output;
 //Specify the links and initial tuning parameters
 double Kp = 2, Ki = 5, Kd = 1;
 PID myPID(&Input, &Output, &Setpoint, Kp, Ki, Kd, DIRECT);
@@ -244,7 +244,10 @@ void setup()
 
 #ifdef ROSMODE
   nh.initNode();
-  nh.subscribe(sub);
+  nh.subscribe(accelSub);
+  nh.subscribe(jerkSub);
+  nh.subscribe(steeringSub);
+  nh.advertise(pub);
 #endif
 
 #ifndef STEPMODE
