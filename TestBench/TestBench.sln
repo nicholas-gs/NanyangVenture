@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Teensy_CAN_Node", "Teensy_C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Jetson_CAN_Node", "Jetson_CAN_Node\Jetson_CAN_Node.vcxproj", "{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Teensy_Jetson_Serial", "Teensy_Jetson_Serial\Teensy_Jetson_Serial.vcxproj", "{A2962B24-1F5D-409C-9D7E-C8A5298AAB35}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino_Receiver_Node", "Arduino_Receiver_Node\Arduino_Receiver_Node.vcxproj", "{06CF9943-D6DE-470B-9D61-D4BAFADB826C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -27,6 +31,14 @@ Global
 		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Debug|x86.Build.0 = Debug|Win32
 		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Release|x86.ActiveCfg = Release|Win32
 		{4C6CEF36-FABF-4DCF-8D18-DEED2F823E32}.Release|x86.Build.0 = Release|Win32
+		{A2962B24-1F5D-409C-9D7E-C8A5298AAB35}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2962B24-1F5D-409C-9D7E-C8A5298AAB35}.Debug|x86.Build.0 = Debug|Win32
+		{A2962B24-1F5D-409C-9D7E-C8A5298AAB35}.Release|x86.ActiveCfg = Release|Win32
+		{A2962B24-1F5D-409C-9D7E-C8A5298AAB35}.Release|x86.Build.0 = Release|Win32
+		{06CF9943-D6DE-470B-9D61-D4BAFADB826C}.Debug|x86.ActiveCfg = Debug|Win32
+		{06CF9943-D6DE-470B-9D61-D4BAFADB826C}.Debug|x86.Build.0 = Debug|Win32
+		{06CF9943-D6DE-470B-9D61-D4BAFADB826C}.Release|x86.ActiveCfg = Release|Win32
+		{06CF9943-D6DE-470B-9D61-D4BAFADB826C}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
