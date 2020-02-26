@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino_Receiver_Node", "Ar
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Teensy_Ultrasonic", "Teensy_Ultrasonic\Teensy_Ultrasonic.vcxproj", "{78412355-ED74-41F7-939E-981CFA57CD40}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Teensy_Steering", "Teensy_Steering\Teensy_Steering.vcxproj", "{FC4E6F6C-0C7B-47E2-AF1B-0EF5F3DBD062}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -45,6 +47,10 @@ Global
 		{78412355-ED74-41F7-939E-981CFA57CD40}.Debug|x86.Build.0 = Debug|Win32
 		{78412355-ED74-41F7-939E-981CFA57CD40}.Release|x86.ActiveCfg = Release|Win32
 		{78412355-ED74-41F7-939E-981CFA57CD40}.Release|x86.Build.0 = Release|Win32
+		{FC4E6F6C-0C7B-47E2-AF1B-0EF5F3DBD062}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC4E6F6C-0C7B-47E2-AF1B-0EF5F3DBD062}.Debug|x86.Build.0 = Debug|Win32
+		{FC4E6F6C-0C7B-47E2-AF1B-0EF5F3DBD062}.Release|x86.ActiveCfg = Release|Win32
+		{FC4E6F6C-0C7B-47E2-AF1B-0EF5F3DBD062}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
