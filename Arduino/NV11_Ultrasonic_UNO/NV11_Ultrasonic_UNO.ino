@@ -4,68 +4,57 @@
  Author:	Nicho
 */
 
-#include <CANSerializer.h>
-#include <NV11DataUltrasonic.h>
+/*
+	The PING))) 28015 ultrasonic sensor has a range of 2cm to 3m.
+*/
+
+#include <Wire.h>
 
 // For calculating distance in cm from signal pin for ultrasonic sensor
 #define DISTANCE_FACTOR 58.138
-#define CAN_SPI_CS 9
+#define NO_OF_SENSORS 7
+#define SLAVE_ADDRESS 0x10
 
-CANSerializer serializer;
-NV11DataUltrasonic dataUltra;
+// ID & array positions for the calculated distances and signal pins
+const uint8_t FRONT_ID = 0;
+const uint8_t RIGHTFRONT_ID = 1;
+const uint8_t RIGHTSIDE_ID = 2;
+const uint8_t RIGHTBACK_ID = 3;
+const uint8_t LEFTFRONT_ID = 4;
+const uint8_t LEFTSIDE_ID = 5;
+const uint8_t LEFTBACK_ID = 6;
 
 //Pins for ultrasonic sensors
-const uint8_t sigPin1 = 2;
-const uint8_t sigPin2 = 3;
-const uint8_t sigPin3 = 4;
-const uint8_t sigPin4 = 5;
-const uint8_t sigPin5 = 6;
-const uint8_t sigPin6 = 7;
-const uint8_t sigPin7 = 8;
+static uint8_t SIG_PINS[NO_OF_SENSORS] = { 8, 2, 3, 4, 5, 6, 7 };
 
-/* Pins for the MCP2515
-	1. MOSI - 11
-	2. MISO - 12 
-	3. SCK - 13
-*/
-
-// Calculated ultrasonic distances
-uint16_t distance, RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front;
+// Array to store the calculated distances
+static uint16_t distanceBuf[NO_OF_SENSORS];
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-	serializer.init(CAN_SPI_CS); // WRONG PIN, should not be 10
 	ultrasonicInit();
 	Serial.begin(9600);
+
+	// Init I2C. Join as slave with address of 0x10
+	Wire.begin(SLAVE_ADDRESS);
+	// Register request event -- The master will request distance data
+	Wire.onRequest(requestEvent);
+
 	delay(50);
 }
 
 // the loop function runs over and over again until power down or reset
 void loop() {
-	// Get distance from all ultrasonic sensors
-	RightFront = read_ultrasonic(sigPin1);
-	RightSide = read_ultrasonic(sigPin2);
-	RightBack = read_ultrasonic(sigPin3);
-	LeftFront = read_ultrasonic(sigPin4);
-	LeftSide = read_ultrasonic(sigPin5);
-	LeftBack = read_ultrasonic(sigPin6);
-	Front = read_ultrasonic(sigPin7);
+	// Read in the distance from all ultrasonic sensors and store them in the distance buffer
+	for (int i = 0; i < NO_OF_SENSORS; i++) {
+		uint16_t d = read_ultrasonic(SIG_PINS[i]);
+		distanceBuf[i] = d;
 
-	// Send distance readings through the CAN bus
-	CANFrame f;
-	dataUltra.insertData(RightFront, RightSide, RightBack, LeftFront, LeftSide, LeftBack, Front);
-	dataUltra.packCAN(&f);
-	bool sent = serializer.sendCanFrame(&f);
-
-	// Debug purposes
-	if (sent) {
-		Serial.println("CAN Frame sent");
-	}
-	else {
-		Serial.println("Cannot send CANframe");
+		// Debug purpose
+		Serial.println(distanceBuf[i]);
 	}
 
-	delay(200);
+	Serial.println("**********************");
 }
 
 /*
@@ -73,32 +62,33 @@ void loop() {
 */
 void ultrasonicInit() {
 	//Init the ultrasonic sensor pins
-	pinMode(sigPin1, OUTPUT); // Right front
-	digitalWrite(sigPin1, LOW);
+	pinMode(SIG_PINS[RIGHTFRONT_ID], OUTPUT); // Right front
+	digitalWrite(SIG_PINS[RIGHTFRONT_ID], LOW);
 
-	pinMode(sigPin2, OUTPUT); // Right side
-	digitalWrite(sigPin2, LOW);
+	pinMode(SIG_PINS[RIGHTSIDE_ID], OUTPUT); // Right side
+	digitalWrite(SIG_PINS[RIGHTSIDE_ID], LOW);
 
-	pinMode(sigPin3, OUTPUT); // Right back
-	digitalWrite(sigPin3, LOW);
+	pinMode(SIG_PINS[RIGHTBACK_ID], OUTPUT); // Right back
+	digitalWrite(SIG_PINS[RIGHTBACK_ID], LOW);
 
-	pinMode(sigPin4, OUTPUT); // Left front
-	digitalWrite(sigPin4, LOW);
+	pinMode(SIG_PINS[LEFTFRONT_ID], OUTPUT); // Left front
+	digitalWrite(SIG_PINS[LEFTFRONT_ID], LOW);
 
-	pinMode(sigPin5, OUTPUT); // Left side
-	digitalWrite(sigPin5, LOW);
+	pinMode(SIG_PINS[LEFTSIDE_ID], OUTPUT); // Left side
+	digitalWrite(SIG_PINS[LEFTSIDE_ID], LOW);
 
-	pinMode(sigPin6, OUTPUT); // Left back
-	digitalWrite(sigPin6, LOW);
+	pinMode(SIG_PINS[LEFTBACK_ID], OUTPUT); // Left back
+	digitalWrite(SIG_PINS[LEFTBACK_ID], LOW);
 
-	pinMode(sigPin7, OUTPUT); // Front
-	digitalWrite(sigPin7, LOW);
+	pinMode(SIG_PINS[FRONT_ID], OUTPUT); // Front
+	digitalWrite(SIG_PINS[FRONT_ID], LOW);
 }
 
 /*
 	Returns the distance reading from a single ultrasonic sensor
 */
 uint16_t read_ultrasonic(uint8_t sig_pin) {
+	uint16_t distance;
 	pinMode(sig_pin, OUTPUT);
 	digitalWrite(sig_pin, LOW);
 	delayMicroseconds(2);
@@ -113,6 +103,20 @@ uint16_t read_ultrasonic(uint8_t sig_pin) {
 	distance = pulseIn(sig_pin, HIGH);
 
 	distance = distance / DISTANCE_FACTOR;
-
+	if (distance > 300) {
+		distance = 300;
+	}
 	return distance;
+}
+
+/*
+	I2C master request data from the slave.
+	For each ultrasonic data, first byte will be the ID of the sensor, the second byte is the actual data.
+	REMEMBER TO MULTIPLY THE DATA BY 2 AT THE RECEIVER SIDE !!!!
+*/
+void requestEvent() {
+	for (int i = 0; i < NO_OF_SENSORS; i++) {
+		Wire.write((uint8_t)i); // Send the ID of the ultrasonic data
+		Wire.write((uint8_t)(distanceBuf[i] / 2)); // Divide the data by 2 such that it can be transmitted as 1 byte
+	}
 }

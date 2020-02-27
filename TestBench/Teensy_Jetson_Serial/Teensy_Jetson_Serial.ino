@@ -47,20 +47,24 @@ void accelMessage(const std_msgs::Float32& accel_msg) {
 }
 
 ros::Subscriber<std_msgs::Float32> sub("nv11/steering_angle", &twistMessage);
-// ros::Subscriber<std_msgs::Float32> sub2("nv11/accel", &accelMessage);
+ros::Subscriber<std_msgs::Float32> sub2("nv11/accel", &accelMessage);
 
 // the setup function runs once when you press reset or power the board
 void setup() {
 	pinMode(13, OUTPUT);
 	digitalWrite(13, LOW);
 	// Init Serial4
-	// Serial4.begin(9600);
+	Serial4.begin(9600);
 	Wire.begin();
+	Serial.begin(9600);
 
 	nh.initNode();
 	nh.subscribe(sub);
-  //nh.subscribe(sub2);
+	nh.subscribe(sub2);
 }
+
+const uint8_t NO_OF_SENSORS = 7;
+static uint16_t distanceBuf[NO_OF_SENSORS];
 
 // the loop function runs over and over again until power down or reset
 void loop() {
