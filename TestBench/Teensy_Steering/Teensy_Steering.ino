@@ -25,7 +25,7 @@
 #define JITTERZONE 3
 
 // Rotary Encoder I2C address
-#define ROTARY_ENCODER_ADDRESS 0x12
+#define ROTARY_ENCODER_ADDRESS 12
 
 // Assign the steering angle as defined by ROS in the subscriber handler
 static int targetSteeringAngle = 0;
@@ -42,18 +42,27 @@ AccelStepper steering(1, STEERPPIN, STEERDPIN);
 ros::NodeHandle nh;
 
 void steeringHandler(const std_msgs::Float32& twist_msg);
-// ros::Subscriber<std_msgs::Float32> sub("nv11/steering_angle", &steeringHandler);
+
+// ROS subscriber to the nv11/steering_angle ROS topic
+ros::Subscriber<std_msgs::Float32> sub("nv11/steering_angle", &steeringHandler);
 
 // the setup function runs once when you press reset or power the board
 void setup() {
 	Serial.begin(9600);
 	Wire.begin();
 
+	// Debug purpose -- Teensy LED
+	pinMode(13, OUTPUT);
+	digitalWrite(13, LOW);
+	
+	nh.initNode();
+	nh.subscribe(sub);
+
 	/*
 		When AccelStepper starts it has no idea where the motors are, hence the need to home 
 		the motors and set the homed position to 0 (or some reference position).
 	*/
-	steering.setCurrentPosition(0);
+	steering.setCurrentPosition(steering.currentPosition());
 }
 
 // the loop function runs over and over again until power down or reset
@@ -61,10 +70,26 @@ void loop() {
 	// RequestRotaryData();
 	targetSteeringStep = targetSteeringAngle;
 	if (targetSteeringAngle > stepSLast + JITTERZONE || targetSteeringAngle < stepSLast - JITTERZONE) {
-		steering.move(targetSteeringStep);
+		steering.moveTo(targetSteeringStep);
 		stepSLast = targetSteeringAngle;
 	}
-	steering.run();
+
+	bool running = steering.run();
+	// Debug purpose -- Blink the Teensy LED if the stepper motor is being runned
+	if (running) {
+		digitalWrite(13, HIGH);
+	}
+	/*
+	else {
+		targetSteeringAngle += 1;
+		targetSteeringAngle = targetSteeringAngle % 90;
+	} */
+
+	nh.spinOnce();
+
+	// Debug purpose -- Blink the Teensy LED if the stepper motor is being runned
+	delay(200);
+	digitalWrite(13, LOW);
 }
 
 /*
@@ -79,8 +104,14 @@ void steeringHandler(const std_msgs::Float32& twist_msg) {
 	Get absolute encoder value
 */
 void RequestRotaryData() {
-	Wire.requestFrom(ROTARY_ENCODER_ADDRESS, 4);
+	Wire.requestFrom(ROTARY_ENCODER_ADDRESS, 2);
 	while (Wire.available()) {
+		int neg = Wire.read();
+		currentSteeringAngle = Wire.read();
+		currentSteeringAngle *= 2;
 
+		if (neg == 1) {
+			currentSteeringAngle = -(currentSteeringAngle);
+		}
 	}
 }
