@@ -134,7 +134,7 @@ void initSteering() {
 	steering.setCurrentPosition(0);
 
 	RequestRotaryData();
-	while (currentSteeringAngle != 0) {
+	while (currentSteeringAngle > 1 || currentSteeringAngle < -1) {
 		// If steering angle from rotart encoder is negative, steering wheel is turned to the left
 		if (currentSteeringAngle < 0) {
 			targetSteeringStep -= 1;
