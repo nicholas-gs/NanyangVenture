@@ -50,11 +50,13 @@ void loop() {
 	for (int i = 0; i < NO_OF_SENSORS; i++) {
 		uint16_t d = read_ultrasonic(SIG_PINS[i]);
 		distanceBuf[i] = d;
-
-		// Debug purpose
-		Serial.println(distanceBuf[i]);
 	}
 
+	// Debug purpose
+	for (int i = 0; i < NO_OF_SENSORS; i++) {
+		
+		Serial.println(distanceBuf[i]);
+	}
 	Serial.println("**********************");
 }
 

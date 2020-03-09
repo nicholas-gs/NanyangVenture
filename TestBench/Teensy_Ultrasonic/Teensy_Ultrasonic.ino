@@ -16,6 +16,7 @@
 	LEFTFRONT_ID = 4;
 	LEFTSIDE_ID = 5;
 	LEFTBACK_ID = 6;
+	BACK_ID = 7;
 	***************************************************
 */
 
@@ -51,5 +52,5 @@ void loop() {
 
 	// The master should not request ultrasonic data reading from the slave too often
 	// as it takes some time for the arduino uno to read in the distances from all the sensors
-	delay(500);
+	delay(1000);
 }

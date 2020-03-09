@@ -108,7 +108,7 @@ void steeringHandler(const std_msgs::Float32& twist_msg) {
 }
 
 /*
-	Get absolute encoder value
+	Get steering absolute encoder value
 */
 void RequestRotaryData() {
 	Wire.requestFrom(ROTARY_ENCODER_ADDRESS, 2);
