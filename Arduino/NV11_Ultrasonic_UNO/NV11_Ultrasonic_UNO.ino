@@ -12,7 +12,7 @@
 
 // For calculating distance in cm from signal pin for ultrasonic sensor
 #define DISTANCE_FACTOR 58.138
-#define NO_OF_SENSORS 7
+#define NO_OF_SENSORS 8
 #define SLAVE_ADDRESS 0x10
 
 // ID & array positions for the calculated distances and signal pins
@@ -23,9 +23,10 @@ const uint8_t RIGHTBACK_ID = 3;
 const uint8_t LEFTFRONT_ID = 4;
 const uint8_t LEFTSIDE_ID = 5;
 const uint8_t LEFTBACK_ID = 6;
+const uint8_t BACK_ID = 7;
 
 //Pins for ultrasonic sensors
-static uint8_t SIG_PINS[NO_OF_SENSORS] = { 8, 2, 3, 4, 5, 6, 7 };
+static uint8_t SIG_PINS[NO_OF_SENSORS] = { 8, 2, 3, 4, 5, 6, 7, 9 };
 
 // Array to store the calculated distances
 static uint16_t distanceBuf[NO_OF_SENSORS];
@@ -49,11 +50,13 @@ void loop() {
 	for (int i = 0; i < NO_OF_SENSORS; i++) {
 		uint16_t d = read_ultrasonic(SIG_PINS[i]);
 		distanceBuf[i] = d;
-
-		// Debug purpose
-		Serial.println(distanceBuf[i]);
 	}
 
+	// Debug purpose
+	for (int i = 0; i < NO_OF_SENSORS; i++) {
+		
+		Serial.println(distanceBuf[i]);
+	}
 	Serial.println("**********************");
 }
 
@@ -82,6 +85,9 @@ void ultrasonicInit() {
 
 	pinMode(SIG_PINS[FRONT_ID], OUTPUT); // Front
 	digitalWrite(SIG_PINS[FRONT_ID], LOW);
+
+	pinMode(SIG_PINS[BACK_ID], OUTPUT); // Back
+	digitalWrite(SIG_PINS[BACK_ID], LOW);
 }
 
 /*
